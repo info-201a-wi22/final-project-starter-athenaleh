@@ -14,9 +14,9 @@
 
 |Element | Brief Description|
 |---------------| --------------
-|Code name | Give your project a _code name_, a short, evocative name for efficiently referring to your project. Your code name does not change! Examples: _Jazz-4_, _Rocking Fish_, etc. |
-|Project title| Give your project a concise, interesting title that summarizes the entirety of your project. (Your title can change on subsequent deliverables.) |
-|Authors | Names of your team members and contact information (email addresses). |
+|Code name | mental_health |
+|Project title| Mental Health Issues Around The World |
+|Authors | Arianna Khan, arikhan2@uw.edu;  Ron Levy, rlevy123@uws.edu; Nooha Mohammad, (nooham9@uw.edu); Athena Leh, uyenmile@uw.edu |
 |Affiliation |  INFO-201: Technical Foundations of Informatics - The Information School - University of Washington |
 |Date | Winter 2022|
 |Abstract | Our main question for this project is to see the role that mental health plays in our world. Considering that mental health has only recently become acknowledged as a serious problem, we can get a better understanding of how mental health plays into people’s lives. To address this concern, we will observe the prevalence of different mental health issues by looking at the rates of mental health per country/region.|
