@@ -19,8 +19,8 @@
 |Authors | [Athena](uyenmile@uw.edu), [Arianna](arikhan2@uw.edu), [Nooha](nooham9@uw.edu), [Ron](ron7212@gmail.com) |
 |Affiliation |  INFO-201: Technical Foundations of Informatics - The Information School - University of Washington |
 |Date | Winter 2022|
-|Abstract | No more than three sentences that summarize your project. Focus on the very most important aspects. For example: **(1)** "Our main question is .... This question is important because .... To address the question, we will ...." **(2)** "We are concerned with ..., because .... To address this concern, we plan to ...." **(3)** "Consider that ....  This is important because .... Accordingly, we plan to ...."   |
-|Keywords | 3-5 keywords that summarize your project.  (e.g., "Keywords: human physiology; bicycle exercise; elderly; power and heart rate times-series data") |
+|Abstract | Our main question for this project is to **see the role that mental health plays in our world**. Considering that mental health has only recently become acknowledged as a _serious_ problem, we can get a better understanding of how mental health plays into people’s lives. To address this concern, we will observe the prevalence of different mental health issues by looking at the rates of mental health per country/region. |
+|Keywords | mental health issues; global health; countries |
 |1.0 Introduction | Briefly introduce your project. (about 150 words) |
 |2.0 Design Situation | Use short sub-sections to describe your topic and the setting (that is, the sociotechnical situation), including project framing, human values, direct and indirect stakeholders, possible harms and benefits. See the Design Brief, section B.3. **Note**: You *must* include three citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ). You may find it helpful to include a figure.  (about 400 words) |
 |3.0 Research questions | 3-5 research questions. What motivates the questions? Why are they important? See the Deign Brief, section B.4. (about 150 words) |
