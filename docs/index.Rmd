@@ -1,6 +1,6 @@
 ---
-title: "Your Project Title"
-author: "project team members"
+title: "Mental Health Issues Around the World"
+author: "Ron Levy, Athen Le, Arianna Khan, Nooha Mohammed"
 date: "1/22/2022"
 output: html_document
 ---
