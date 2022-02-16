@@ -15,7 +15,10 @@ mental_health <- mental_health %>%
          "Drug Use Disorders" = Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Depressive Disorders" = Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Alcohol Use Disorders" = Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.
-         )
+         )%>%
+  group_by(Entity)%>%
+  filter(Year >= 1991)%>%
+  filter(Year <= 2012)
 View(mental_health)
 
 #Unemployment dataset
@@ -25,12 +28,11 @@ colnames(unemployment)
 
 ##cleaning up data set
 unemployment <- unemployment %>%
-  rename("Unempployment Total Labor Force %" = Unemployment..total....of.total.labor.force...modeled.ILO.estimate.)
+  rename("Unempployment Total Labor Force %" = Unemployment..total....of.total.labor.force...modeled.ILO.estimate.)%>%
+  group_by(Entity)%>%
+  filter(Year <= 2012)
 View(unemployment)
 
-#Violence dataset
-violence <- read.csv("data/violence.csv")
-View(violence)
 
 #government dataset
 government <- read_csv("data/Government.csv")
@@ -38,8 +40,19 @@ View(government)
 colnames(government)
 government <- government %>%
   rename(Year= year, Code= scode, Entity= country, Regime = regime_nr)%>%
-  filter(Year >= 1990) %>%
-  select(Entity, Code, Year, Regime)%>%
   group_by(Entity)%>%
-  arrange(Year)
+  filter(Year > 1990) %>%
+  select(Entity, Code, Year, Regime)
 View(government)
+
+
+# aggregated table
+aggregate_table <- mental_health %>%
+  left_join(government, by= c("Entity", "Year"))%>%
+  left_join(unemployment, by=c("Entity", "Year"))
+  
+View(aggregate_table)
+?left_join
+?n_distinct
+?merge
+
