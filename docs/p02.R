@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+#original dataset with all the mental health issues ---------
+=======
+<<<<<<< HEAD
 #original dataset with all the mental health issues
+>>>>>>> 553ada5f13bd80210340189ef68a51fbea2c6598
 mental_health <- read.csv("data/prevalence-by-mental-and-substance-use-disorder.csv")
 View(mental_health)
 library(dplyr)
@@ -22,7 +26,7 @@ mental_health <- mental_health %>%
   filter(Year <= 2012)
 View(mental_health)
 
-#Unemployment dataset
+#Unemployment dataset----------
 unemployment <- read.csv("data/unemployment-rate.csv")
 View(unemployment)
 colnames(unemployment)
@@ -35,7 +39,7 @@ unemployment <- unemployment %>%
 View(unemployment)
 
 
-#government dataset
+#government dataset --------------
 government <- read_csv("data/Government.csv")
 View(government)
 colnames(government)
@@ -47,13 +51,27 @@ government <- government %>%
 View(government)
 
 
-# aggregated table
+# aggregated dataframe -------------------
 aggregate_table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
   
 View(aggregate_table)
 
+<<<<<<< HEAD
+##aggregated list: --------
+## the average mental health problem percentage through each regime
+mental_health_gov <- mental_health %>%
+  group_by(Entity, Year)%>%
+  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  left_join(government, by= c("Entity", "Year"))%>%
+  group_by(Regime)%>%
+  summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
+View(mental_health_gov)
+
+
+=======
 ?ls
+>>>>>>> 553ada5f13bd80210340189ef68a51fbea2c6598
 
 
