@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #original dataset with all the mental health issues
 mental_health <- read.csv("data/prevalence-by-mental-and-substance-use-disorder.csv")
 View(mental_health)
@@ -50,4 +51,9 @@ View(government)
 aggregate_table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
+  
 View(aggregate_table)
+
+?ls
+
+

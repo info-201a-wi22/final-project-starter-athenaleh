@@ -8,4 +8,17 @@ output: html_document
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+```{r}
+source("p02.R")
+```
+
+# **Aggregate Table Script**
+
+
+=======
+>>>>>>> 286dfd2fdd6da878a804bdc6e5472619fe3e0d7d
+=======
+>>>>>>> 8d86e8a1399c886262ccd1d9868ca9445192604e
