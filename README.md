@@ -6,7 +6,7 @@
 
 |Project Directories | Brief Description|
 |---------------| -----------------|
-|[`/data`](./data) See this directory for our datasets. 
+|[`/data`](./data) See this directory for our datasets.
 
 if you work with Common Separated Value (.cvs) datasets, they would stored here and documented in this directory's README.md file. Similarly, if you get data from web APIs, you would document the APIs in the directory's `README.md`.
 |[`/docs`](./docs) | All project reports and web documents will be published from this directory. This includes Markdown files (.md), R Markdown files (.Rmd),   HTML files (.html), and so on. The `./docs` directory is the root directory of the website for your project. It will also be used to store all of your design work and project documentation.|
@@ -24,3 +24,4 @@ learning everything you need to know during lectures and labs.
 * If you need to, you may add additional directories, README.md files, and other files.
 
 hello
+bgb
