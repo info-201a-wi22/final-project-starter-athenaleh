@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #original dataset with all the mental health issues
 mental_health <- read.csv("data/prevalence-by-mental-and-substance-use-disorder.csv")
 View(mental_health)
@@ -55,4 +56,5 @@ View(aggregate_table)
 ?left_join
 ?n_distinct
 ?merge
+
 
