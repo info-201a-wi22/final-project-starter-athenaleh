@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #original dataset with all the mental health issues ---------
+=======
+<<<<<<< HEAD
+#original dataset with all the mental health issues
+>>>>>>> 553ada5f13bd80210340189ef68a51fbea2c6598
 mental_health <- read.csv("data/prevalence-by-mental-and-substance-use-disorder.csv")
 View(mental_health)
 library(dplyr)
@@ -50,8 +55,10 @@ View(government)
 aggregate_table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
+  
 View(aggregate_table)
 
+<<<<<<< HEAD
 ##aggregated list: --------
 ## the average mental health problem percentage through each regime
 mental_health_gov <- mental_health %>%
@@ -63,5 +70,8 @@ mental_health_gov <- mental_health %>%
 View(mental_health_gov)
 
 
+=======
+?ls
+>>>>>>> 553ada5f13bd80210340189ef68a51fbea2c6598
 
 
