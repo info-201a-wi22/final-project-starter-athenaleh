@@ -1,6 +1,6 @@
 ---
 title: "Mental Health Issues Around the World"
-author: "Ron Levy, Athen Le, Arianna Khan, Nooha Mohammed"
+author: "Ron Levy, Athena Le, Arianna Khan, Nooha Mohammed"
 date: "1/22/2022"
 output: html_document
 ---
@@ -8,11 +8,4 @@ output: html_document
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-```{r}
-source("p02.R")
-```
-
-# **Aggregate Table Script**
-
 

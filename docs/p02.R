@@ -50,9 +50,4 @@ View(government)
 aggregate_table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
-  
 View(aggregate_table)
-?left_join
-?n_distinct
-?merge
-
