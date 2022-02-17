@@ -15,7 +15,7 @@ read_unemployment_rate_dataset <- function () {
 }
 
 read_government_dataset <- function () {
-  path_to_file <- "../data/Government.csv"
+  path_to_file <- "../data/Government.xls.csv"
   dataframe <- read.csv(path_to_file)
   return(dataframe)
 }
