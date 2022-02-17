@@ -7,5 +7,10 @@ output: html_document
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("p02.R")
 ```
 
+
+```{r, include=F, echo=T}
+nrow(mental_health)
+```
