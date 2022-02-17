@@ -3,12 +3,13 @@
 
 library(ggplot2)
 source(dataframe)
-df <- data.frame(x = government_type, y = disorder_prevalence, group = city)
+
+df <- data.frame(x = government_type, y = disorder_prevalence, group = disorder)
 government_type <- c(autocracy, democracy, republic, ...)
-condition <- rep(c("depression" , "anxiety" , "bipolar", "schizophrenia"))
+disorder <- rep(c("depression" , "anxiety" , "bipolar", "schizophrenia"))
 
 # Stacked
-ggplot(df, aes(x=government_type, y=disorder_prevalence, fill=condition)) + 
+ggplot(df, aes(x=government_type, y=disorder_prevalence, fill=disorder)) + 
   geom_bar(position="stack", stat="identity") +
   scale_fill_brewer()
 
