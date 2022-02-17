@@ -1,10 +1,28 @@
 # libraries
 library(ggplot2)
 
-# data simulation
+# source https://r-charts.com/correlation/scatter-plot-group-ggplot2/
+
+# set working directory
+setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/docs")
+
+# data access
+source("data_access.R")
+
+# use the data
+mental_health <- read_mental_health_dataset()
+unemployment_rate <- read_unemployment_rate_dataset()
+government_rate <- read_government_dataset
+
+# countries: USA (democracy), Brazil (military), Pakistan (multiparty), 
+# Morocco (monarchy), Vietnam (single party)
+
+# data simulation for USA 
+# x unemployment rate 
+# y rates of different disorders  
 x <- 
 y <- 
-  
+
 # data frame
 data <- data.frame(x, y, group = disorders)
 
