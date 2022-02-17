@@ -17,4 +17,3 @@
 
 # What is the correlation between unemployment rates and the prevalence of mental illnesses?
 # (calculate a correlation coefficient - like a Pearson's R or p-value)
-  
