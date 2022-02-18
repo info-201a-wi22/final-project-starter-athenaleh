@@ -4,8 +4,18 @@ author: "Ron Levy, Athena Le, Arianna Khan, Nooha Mohammed"
 date: "1/22/2022"
 output: html_document
 ---
-
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## What is this file for?
+
+* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
+
+* Please see Canvas for more details.
+
+## ACCESSING THE /source DIRECTORY
+### Example 1: Source some code and run a function
+```{r}
+source("../source/p02.R")
+```

@@ -12,14 +12,17 @@ library(reshape2)
 # (This is where mental health has to be most prioritized)
 highest_region <- aggregate_list%>%
   filter(Year==max(Year))%>%
-  group_by(Year)%>%
-  filter(`Avg Mental Health Percentage`== max(`Avg Mental Health Percentage`))%>%
-  pull(Entity.x)
-  
-highest_region
+  group_by(Entity)%>%
+  filter(Entity != "")%>%
+  summarize(Avg_Mental_Health_Percentage = sum(Schizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  filter(Avg_Mental_Health_Percentage == max(Avg_Mental_Health_Percentage, na.rm=T))%>%
+  pull(Entity)
+highest_region 
+#United States
 
 # What is the most prevalent mental health problem currently?-----
 # (We have identified this as the most widespread issue that needs to be addressed globally)
+library(reshape2)
 most_prevelant_problem <- mental_health %>%
   filter(Year == max(Year))%>%
   group_by(Year)%>%
@@ -37,7 +40,10 @@ most_prevelant_problem <- mental_health %>%
 
  most_prevelant_problem # anxiety_avg
 
- # Which country has the lowest amount of mental health issues?
+ # Which country has the lowest amount of mental health issues currently? ----
+ # ("may be skewed/ biased (see below). If we delve into this country specifically, we can 
+ # extrapolate lessons on how governments can minimize mental illnesses to better serve their citizens)
+ 
  least_prevelant_problem <- mental_health %>%
    filter(Year == max(Year))%>%
    group_by(Year)%>%
@@ -57,8 +63,8 @@ most_prevelant_problem <- mental_health %>%
  
  # What is the most prevalent mental health problem in the first recorded time?-----
  most_prevelant_problem_early <- mental_health %>%
-   filter(Year == min(Year)) %>%
    group_by(Year)%>%
+   filter(Year == min(Year)) %>%
    summarize(schizophrenia_avg = mean(Schizophrenia), 
              bipolar_avg = mean(`Bipolar Disorders`), 
              anxiety_avg = mean(`Anxiety Disroders`), 
@@ -73,25 +79,19 @@ most_prevelant_problem <- mental_health %>%
  
  most_prevelant_problem_early # anxiety_avg
 
- # Which country has the lowest amount of mental health issues on average? ----
-# ("may be skewed/ biased (see below). If we delve into this country specifically, we can 
-# extrapolate lessons on how governments can minimize mental illnesses to better serve their citizens)
-country_lowest<- aggregate_list%>%
-  filter(Year==max(Year))%>%
-  group_by(Year)%>%
-  filter(`Avg Mental Health Percentage`== min(`Avg Mental Health Percentage`))%>%
-  pull(Entity.x)
-country_lowest
-  
 # What type of government produces the lowest prevalence of mental illnesses?-----
 # (in the summary paragraph, point out that: "this may data be skewed because authoritative
 # countries may have under reported values, or there may be going on that we cannot see")
 lowest_prevalence <- mental_health_gov %>%
-  filter(`Regime Mental Health Avg` == min(`Regime Mental Health Avg`))%>%
-  pull(Regime)
+   filter(Avg==min(Avg))%>%
+   pull(Regime)
 lowest_prevalence
 
+<<<<<<< HEAD
 # What is the correlation between unemployment rates and the prevalence of mental illnesses in 2019?
+=======
+# What is the correlation between unemployment rates and the prevalence of mental illnesses in each country?
+>>>>>>> 08662c8d86a29a0f8c05b852fc4649cb3ec6df7a
 # (calculate a correlation coefficient - like a Pearson's R or p-value)
 source("p02.R")
 source("chart_1.R")

@@ -4,7 +4,7 @@ View(mental_health)
 library(dplyr)
 library(tidyverse)
 library(stringr)
-colnames(mental_health)
+
 
 mental_health <- mental_health %>%
   rename(Schizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
@@ -35,7 +35,7 @@ View(unemployment)
 
 #government dataset --------------
 government <- read_csv("../data/Government.xls.csv")
-View(government)
+
 colnames(government)
 government <- government %>%
   rename(Year= year, Code= scode, Entity= country, Regime = regime_nr)%>%
@@ -45,7 +45,7 @@ government <- government %>%
 View(government)
 
 
-#
+
 table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
@@ -57,30 +57,22 @@ View(table)
 ## the average mental health problem percentage through each regime
 mental_health_gov <- mental_health %>%
   group_by(Entity, Year)%>%
-  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  summarize("Avg" = sum(Schizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
   left_join(government, by= c("Entity", "Year"))%>%
   filter(Code != "")%>%
   group_by(Regime)%>%
-  summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
+  summarize("Avg"= mean(Avg))
 View(mental_health_gov)
 
-mental_health_unemp <- mental_health %>%
-  merge(unemployment, by="Code")%>%
-  group_by(Code)%>%
-  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)
-
-
-View(mental_health_unemp)
-
-colnames(aggregate_list)
 
 #AGGREGATE LIST-----
 
 aggregate_list <- mental_health %>%
   group_by(Code, Year)%>%
+  filter(Code != "")%>%
   left_join(unemployment, by= c("Code", "Year"))%>%
-  left_join(government, by= c("Code", "Year"))%>%
-  filter(Code != "")
+  left_join(government, by= c("Code", "Year"))
+
   
 View(aggregate_list) 
  
