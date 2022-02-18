@@ -78,16 +78,7 @@ most_prevelant_problem <- mental_health %>%
 # (in the summary paragraph, point out that: "this may data be skewed because authoritative
 # countries may have under reported values, or there may be going on that we cannot see")
 lowest_prevalence <- mental_health_gov %>%
-   group_by(Regime)%>%
-   summarize(schizophrenia_avg = mean(Scizophrenia, na.rm=T), 
-             bipolar_avg = mean(`Bipolar Disorders`, na.rm=T), 
-             anxiety_avg = mean(`Anxiety Disorders`, na.rm=T), 
-             drug_avg = mean(`Drug Use Disorders`, na.rm=T), 
-             depressive_avg = mean(`Depressive Disorders`, na.rm=T), 
-             alcohol_avg = mean(`Alcohol Use Disorders`, na.rm=T))%>%
-   group_by(Regime)%>%
-   summarize(avg = sum(schizophrenia_avg, bipolar_avg, anxiety_avg, drug_avg, depressive_avg, alcohol_avg, na.rm=T)/7)%>%
-   filter(avg==min(avg))%>%
+   filter(Avg==min(Avg))%>%
    pull(Regime)
 lowest_prevalence
 
