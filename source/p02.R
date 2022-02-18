@@ -57,7 +57,7 @@ View(table)
 ## the average mental health problem percentage through each regime
 mental_health_gov <- mental_health %>%
   group_by(Entity, Year)%>%
-  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  summarize("Avg_Percentage" = sum(Schizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
   left_join(government, by= c("Entity", "Year"))%>%
   filter(Code != "")%>%
   group_by(Regime)%>%
