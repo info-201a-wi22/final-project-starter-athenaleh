@@ -14,7 +14,10 @@ highest_region <- aggregate_list%>%
   filter(Year==max(Year))%>%
   group_by(Entity)%>%
   filter(Entity != "")%>%
-  summarize(Avg_Mental_Health_Percentage = sum(Schizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  summarize(Avg_Mental_Health_Percentage = sum(Schizophrenia, `Bipolar Disorders`, 
+                                               `Eating Disorders`, `Anxiety Disroders`, 
+                                               `Drug Use Disorders`, `Depressive Disorders`, 
+                                               `Alcohol Use Disorders`, na.rm=T)/7)%>%
   filter(Avg_Mental_Health_Percentage == max(Avg_Mental_Health_Percentage, na.rm=T))%>%
   pull(Entity)
 highest_region 
