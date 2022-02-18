@@ -178,6 +178,16 @@ ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia, color = Co
   theme_linedraw() +
   theme(legend.position = "none")
 
+ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
 # change look of points: geom_point(shape = number, size = number)
 # change shape per group 
 # ggplot(data, aes(x = x, y = y, color = group, shape = group))

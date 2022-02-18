@@ -75,6 +75,7 @@ View(mental_health_unemp)
 colnames(aggregate_list)
 
 #AGGREGATE LIST-----
+
 aggregate_list <- mental_health %>%
   group_by(Code, Year)%>%
   left_join(unemployment, by= c("Code", "Year"))%>%
