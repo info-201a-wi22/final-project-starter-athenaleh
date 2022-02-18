@@ -46,7 +46,7 @@ government <- government %>%
 View(government)
 
 
-# aggregated dataframe -------------------
+# aggregated dataframe
 aggregate_table <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   left_join(unemployment, by=c("Entity", "Year"))
@@ -62,9 +62,25 @@ mental_health_gov <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   group_by(Regime)%>%
   summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
+View(mental_health_gov)
 
+mental_health_unemp <- mental_health %>%
+  merge(unemployment, by="Code")%>%
+  group_by(Code)%>%
+  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)
 
-
-View(mental_health_gov)  
 
 View(mental_health_unemp)
+
+colnames(aggregate_list)
+
+
+#AGGREGATE LIST-----
+aggregate_list <- mental_health %>%
+  group_by(Code)%>%
+  summarize("Avg Mental Health Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  left_join(unemployment, by= c("Code"))%>%
+  left_join(government, by= c("Code"))%>%
+  filter(Code != "")
+View(aggregate_list) 
+  
