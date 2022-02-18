@@ -1,7 +1,16 @@
 # Summary file
-# Which continent/region has the most mental health problems? 
-# (This is where mental health has to be most prioritized)
+source("p02.R")
 
+# Which continent/region has the most mental health problems by the most recent date? 
+# (This is where mental health has to be most prioritized)
+colnames(mental_health)
+highest_region <- mental_health %>%
+  filter(Year==max(Year))%>%
+  mutate(Average = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`)/7)%>%
+  group_by(Year)%>%
+  filter(Average == max(Average))%>%
+  pull(Entity)
+highest_region
 # What is the most prevalent mental health problem among all the countries?
 # (We have identified this as the most widespread issue that needs to be addressed globally)
 
