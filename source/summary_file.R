@@ -153,5 +153,11 @@ lowest_mh_avg
 # New Zealand has the lowest mental health rate of 2.89, but its unemployment rate is higher than the US. 
 # The US has a lower unemployment rate, but its percentage of mental health issues is 2.42. 
 
+highest_mh_avg <- merge_mh_unemployment %>%
+  filter(Avg_Percentage == max(Avg_Percentage, na.rm = T)) %>%
+  arrange(Avg_Percentage) %>%
+  select(Countries, Avg_Percentage, Unemployment_rate) 
+highest_mh_avg
+
 # In conclusion, we don't quite see the correlation between the mental illnesses and the unemployment rate. 
 
