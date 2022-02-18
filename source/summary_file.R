@@ -121,7 +121,9 @@ unemployment_cor_filter <- unemployment_filtered %>%
 
 merge_mh_unemployment <- merge(mh_correlation_filter, unemployment_cor_filter, by = "Code") %>%
   group_by(Entity.x) %>%
-  mutate("Avg_Percentage" = sum(`schizophrenia_avg`, `bipolar_avg`, `anxiety_avg`, `drug_avg`, `depressive_avg`, `alcohol_avg`, `eating_avg`, na.rm=T)/7) %>%
+  mutate("Avg_Percentage" = sum(`schizophrenia_avg`, `bipolar_avg`, 
+                                `anxiety_avg`, `drug_avg`, `depressive_avg`, 
+                                `alcohol_avg`, `eating_avg`, na.rm=T)/7) %>%
   select(Entity.x, Avg_Percentage, Unemployment_rate) %>%
   rename(Countries = Entity.x)
 View(merge_mh_unemployment)
