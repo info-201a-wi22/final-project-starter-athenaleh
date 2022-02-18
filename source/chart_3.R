@@ -1,5 +1,6 @@
 # Nooha
-# Stacked (different illness prevalence) bar (for each gov type) chart
+# Stacked (different illness prevalence) bar (for each regime type) chart
+
 library(dplyr)
 library(ggplot2)
 
@@ -10,7 +11,7 @@ source("data_access.R")
 mental_health <- read_mental_health_dataset()
 government_type <- read_government_dataset()
 
-##cleaning up `mental_health` data frame
+# cleaning up `mental_health` data frame
 mental_health <- mental_health %>%
   rename("Scizophrenia" = Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
          "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
@@ -36,7 +37,7 @@ government_type <- government_type %>%
   arrange(Year)
 View(government_type)
 
-# aggregated dataframe ------------------
+# aggregated data frame ------------------
 mental_health_gov <- mental_health %>%
   group_by(Entity, Year)%>%
   right_join(government_type, by= c("Entity", "Year")) %>%
@@ -44,14 +45,12 @@ mental_health_gov <- mental_health %>%
   select(Regime, `Scizophrenia`, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disorders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`)
 View(mental_health_gov)
 
+# turning columns into rows
 library(tidyr)
 mental_health_gov_long <- pivot_longer(mental_health_gov, "Scizophrenia":"Alcohol Use Disorders", names_to = "disorder", values_to = "prevalence")
-group_by(Regime) %>%
-  summarise(prevalence = mean(prevalence))
 View(mental_health_gov_long)
 
-# Stacked
+# Stacked bar plot
 ggplot(mental_health_gov_long, aes(x = Regime, y = prevalence, fill = disorder)) + 
-  geom_bar(position="stack", stat="identity") +
+  geom_bar(position="fill", stat ="identity") +
   scale_fill_brewer()
-
