@@ -87,14 +87,9 @@ lowest_prevalence <- mental_health_gov %>%
    pull(Regime)
 lowest_prevalence
 
-<<<<<<< HEAD
-# What is the correlation between unemployment rates and the prevalence of mental illnesses in 2019?
-=======
-# What is the correlation between unemployment rates and the prevalence of mental illnesses in each country?
->>>>>>> 08662c8d86a29a0f8c05b852fc4649cb3ec6df7a
-# (calculate a correlation coefficient - like a Pearson's R or p-value)
-source("p02.R")
-source("chart_1.R")
+# How does the unemployment rate correlate to mental health issues? 
+# We will approach this question by taking an average of all the mental health issues. 
+# We will compare the numbers for each country with the unemployment rate per countries. 
 
 mh_correlation_filter <- mental_health %>%
   filter(Year == max(Year)) %>%
@@ -114,25 +109,44 @@ mh_correlation_filter <- mental_health %>%
             anxiety_avg = mean(`Anxiety Disorders`), 
             drug_avg = mean(`Drug Use Disorders`), 
             depressive_avg = mean(`Depressive Disorders`), 
-            alcohol_avg = mean(`Alcohol Use Disorders`)) 
-View(mh_correlation_filter)
+            alcohol_avg = mean(`Alcohol Use Disorders`),
+            eating_avg = mean(`Eating Disorders`)) 
 
 unemployment_cor_filter <- unemployment_filtered %>%
   select("Code", "Entity", "value") %>%
   rename(Unemployment_rate = value)
 
-schizo_avg_filter <- mh_correlation_filter %>%
-  select(Code, Entity, schizophrenia_avg)
+merge_mh_unemployment <- merge(mh_correlation_filter, unemployment_cor_filter, by = "Code") %>%
+  group_by(Entity.x) %>%
+  mutate("Avg_Percentage" = sum(`schizophrenia_avg`, `bipolar_avg`, `anxiety_avg`, `drug_avg`, `depressive_avg`, `alcohol_avg`, `eating_avg`, na.rm=T)/7) %>%
+  select(Entity.x, Avg_Percentage, Unemployment_rate) %>%
+  rename(Countries = Entity.x)
+View(merge_mh_unemployment)
 
-merge_schizo_unemployment <- merge(schizo_avg_filter, unemployment_cor_filter, by = "Code") %>%
-  select("Entity.x", "schizophrenia_avg", "Unemployment_rate")
+highest_unemp_mh <- merge_mh_unemployment %>%
+  filter(Unemployment_rate == max(Unemployment_rate, na.rm=T)) %>%
+  arrange(-Unemployment_rate) %>%
+  select(Countries, Avg_Percentage, Unemployment_rate)
+highest_unemp_mh 
+View(highest_unemp_mh)  
+# South Africa has the highest unemployment rate of 28.5 with the avg. percentage of mental health of 1.75. 
+# However, Palestine has a higher avg. percentage of mental health with 25.3 unemployment rate. 
 
+lowest_unemp_mh <- merge_mh_unemployment %>%
+  filter(Unemployment_rate == min(Unemployment_rate, na.rm=T)) %>%
+  arrange(Unemployment_rate) %>%
+  select(Countries, Avg_Percentage, Unemployment_rate)
+lowest_unemp_mh 
+# Qatar has the lowest unemployment rate, with a higher average percentage of mental illnesses than Cambodia. 
+# Cambodia has a slightly higher unemployment rate than Qatar. 
 
-summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
-  left_join(government, by= c("Entity", "Year"))%>%
-  filter(Code != "")%>%
-  group_by(Regime)%>%
-  summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
+lowest_mh_avg <- merge_mh_unemployment %>%
+  filter(Avg_Percentage == min(Avg_Percentage, na.rm = T)) %>%
+  arrange(-Avg_Percentage) %>%
+  select(Countries, Avg_Percentage, Unemployment_rate) 
+lowest_mh_avg
+# New Zealand has the lowest mental health rate of 2.89, but its unemployment rate is higher than the US. 
+# The US has a lower unemployment rate, but its percentage of mental health issues is 2.42. 
 
-
+# In conclusion, we don't quite see the correlation between the mental illnesses and the unemployment rate. 
 
