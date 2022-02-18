@@ -74,11 +74,6 @@ View(mental_health_unemp)
 
 colnames(aggregate_list)
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ad564c898133865f585e363b904c8a048d783313
 #AGGREGATE LIST-----
 aggregate_list <- mental_health %>%
   group_by(Code, Year)%>%
