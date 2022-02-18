@@ -3,7 +3,6 @@ source("p02.R")
 
 # Which continent/region has the most mental health problems by the most recent date? -----
 # (This is where mental health has to be most prioritized)
-
 highest_region <- aggregate_list%>%
   filter(Year==max(Year))%>%
   group_by(Year)%>%
@@ -26,19 +25,48 @@ most_prevelant_problem <- mental_health %>%
   select(schizophrenia_avg, bipolar_avg, anxiety_avg, drug_avg, depressive_avg, alcohol_avg) %>%
   melt(id.vars=c()) %>%
   rename(rate = value, disorders = variable) %>%
-  
+  filter(rate == max(rate)) %>%
+  pull(disorders)
 
- most_prevelant_problem 
+ most_prevelant_problem # anxiety_avg
 
- View(most_prevelant_problem)
  # Which country has the lowest amount of mental health issues?
+ least_prevelant_problem <- mental_health %>%
+   filter(Year == max(Year))%>%
+   group_by(Year)%>%
+   summarize(schizophrenia_avg = mean(Schizophrenia), 
+             bipolar_avg = mean(`Bipolar Disorders`), 
+             anxiety_avg = mean(`Anxiety Disroders`), 
+             drug_avg = mean(`Drug Use Disorders`), 
+             depressive_avg = mean(`Depressive Disorders`), 
+             alcohol_avg = mean(`Alcohol Use Disorders`)) %>%
+   select(schizophrenia_avg, bipolar_avg, anxiety_avg, drug_avg, depressive_avg, alcohol_avg) %>%
+   melt(id.vars=c()) %>%
+   rename(rate = value, disorders = variable) %>%
+   filter(rate == min(rate)) %>%
+   pull(disorders)
  
- 
+ least_prevelant_problem # schizophrenia
  
  # What is the most prevalent mental health problem in the first recorded time?-----
+ most_prevelant_problem_early <- mental_health %>%
+   filter(Year == min(Year)) %>%
+   group_by(Year)%>%
+   summarize(schizophrenia_avg = mean(Schizophrenia), 
+             bipolar_avg = mean(`Bipolar Disorders`), 
+             anxiety_avg = mean(`Anxiety Disroders`), 
+             drug_avg = mean(`Drug Use Disorders`), 
+             depressive_avg = mean(`Depressive Disorders`), 
+             alcohol_avg = mean(`Alcohol Use Disorders`)) %>%
+   select(schizophrenia_avg, bipolar_avg, anxiety_avg, drug_avg, depressive_avg, alcohol_avg) %>%
+   melt(id.vars=c()) %>%
+   rename(rate = value, disorders = variable) %>%
+   filter(rate == max(rate)) %>%
+   pull(disorders)
  
- 
-# Which country has the lowest amount of mental health issues on average? ----
+ most_prevelant_problem_early # anxiety_avg
+
+ # Which country has the lowest amount of mental health issues on average? ----
 # ("may be skewed/ biased (see below). If we delve into this country specifically, we can 
 # extrapolate lessons on how governments can minimize mental illnesses to better serve their citizens)
 country_lowest<- aggregate_list%>%
