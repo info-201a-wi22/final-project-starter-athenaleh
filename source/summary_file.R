@@ -87,11 +87,8 @@ lowest_prevalence <- mental_health_gov %>%
    pull(Regime)
 lowest_prevalence
 
-<<<<<<< HEAD
-# What is the correlation between unemployment rates and the prevalence of mental illnesses in 2019?
-=======
 # What is the correlation between unemployment rates and the prevalence of mental illnesses in each country?
->>>>>>> 08662c8d86a29a0f8c05b852fc4649cb3ec6df7a
+
 # (calculate a correlation coefficient - like a Pearson's R or p-value)
 source("p02.R")
 source("chart_1.R")
