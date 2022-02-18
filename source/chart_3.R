@@ -47,10 +47,16 @@ View(mental_health_gov)
 
 # turning columns into rows
 library(tidyr)
-mental_health_gov_long <- pivot_longer(mental_health_gov, "Scizophrenia":"Alcohol Use Disorders", names_to = "disorder", values_to = "prevalence")
+mental_health_gov_long <- pivot_longer(mental_health_gov, "Scizophrenia":"Alcohol Use Disorders", names_to = "disorder", values_to = "prevalence")%>%
+  group_by(Regime, disorder)%>%
+  summarize(prevalence= mean(prevalence, na.rm=T))
 View(mental_health_gov_long)
+
 
 # Stacked bar plot
 ggplot(mental_health_gov_long, aes(x = Regime, y = prevalence, fill = disorder)) + 
   geom_bar(position="fill", stat ="identity") +
   scale_fill_brewer()
+
+
+

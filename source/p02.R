@@ -76,13 +76,13 @@ View(mental_health_unemp)
 colnames(aggregate_list)
 
 
+
 #AGGREGATE LIST-----
 aggregate_list <- mental_health %>%
   group_by(Code, Year)%>%
-  summarize("Avg Mental Health Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
   left_join(unemployment, by= c("Code", "Year"))%>%
   left_join(government, by= c("Code", "Year"))%>%
   filter(Code != "")
   
 View(aggregate_list) 
-  
+ 
