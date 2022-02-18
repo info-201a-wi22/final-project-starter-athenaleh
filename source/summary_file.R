@@ -21,9 +21,9 @@ highest_region <- aggregate_list%>%
                                                `Drug Use Disorders`, `Depressive Disorders`, 
                                                `Alcohol Use Disorders`, na.rm=T)/7)%>%
   filter(Avg_Mental_Health_Percentage == max(Avg_Mental_Health_Percentage, na.rm=T))%>%
-  pull(Entity)
+  pull(Avg_Mental_Health_Percentage)
 highest_region 
-#United States
+# United States has 57.1% of the highest average mental health percentage. 
 
 # What is the most prevalent mental health problem currently?-----
 # (We have identified this as the most widespread issue that needs to be addressed globally)
