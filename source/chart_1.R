@@ -5,7 +5,6 @@ rm(list=ls())
 library(ggplot2)
 library(dplyr)
 library(reshape2)
-library(tidyverse)
 
 # source https://r-charts.com/correlation/scatter-plot-group-ggplot2/
 
@@ -47,39 +46,143 @@ unemployment_filtered <- unemployment_rate %>%
 
 View(unemployment_filtered)
 
-# countries chosen: USA (democracy), Brazil (military), Pakistan (multiparty), 
-# Morocco (monarchy), Vietnam (single party)
-
 # x unemployment rate 
 # y rates of disorders of each country
 # each graph shows each disorder
 
-
 # Schizophrenia 
-# merge unemployment and schizophrenia datasets together using code
+schizophrenia <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Schizophrenia") 
 
-merged_data <- merge(mental_health_filtered, unemployment_filtered, by= "Code") 
+# merge unemployment and schizophrenia data sets together using code
+merged_schizophrenia <- merge(schizophrenia, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(Schizophrenia = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
 
-
-unemployment <- unemployment_filtered %>%
-  select("Entity", "value")
-
-schizophrenia <- mental_health_filtered %>%
-  filter(disorders == "Schizophrenia") %>%
-  select("Entity", "value", "disorders ") 
-  
-# data frame
-data <- data.frame(unemployment, schizophrenia, group = "Entity")
-
-# scatter plot by group 
-ggplot(data, aes(x = x, y = x, color = disorders)) +
+# scatter plot by Schizophrenia
+ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia)) +
   geom_point() 
 
-# change look of points: geom_point(shape = number, size = number)
+# Bipolar Disorders
+bipolar_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Bipolar Disorders") 
 
+# merge unemployment and bipolar disorder data sets together using code
+merged_bd <- merge(bipolar_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(Bipolar_disorders_rates = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by bipolar disorders
+ggplot(merged_bd, aes(x = Unemployment, y = Bipolar_disorders_rates)) +
+  geom_point() 
+
+# Eating Disorders
+eating_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Eating Disorders") 
+
+merged_ed <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(eating_disorders_rates = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by eating disorders
+ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates)) +
+  geom_point() 
+
+# Anxiety Disorders
+anxiety_disroders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Anxiety Disorders") 
+
+merged_anxiety_disorders <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(anxiety_disorders_rates = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by eating disorders
+ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates)) +
+  geom_point() 
+
+# Drug Use Disorders
+drug_use_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Drug Use Disorders") 
+
+merged_drug_use <- merge(drug_use_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(drug_use_disorders_rates = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by eating disorders
+ggplot(merged_drug_use, aes(x = Unemployment, y = drug_use_disorders_rates)) +
+  geom_point() 
+
+# Depressive Disorders
+depressive_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Depressive Disorders") 
+
+merged_depressive_disorders <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(depressive_disorders_rates = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by eating disorders
+ggplot(merged_depressive_disorders, aes(x = Unemployment, y = depressive_disorders_rates)) +
+  geom_point() 
+
+# Alcohol Use Disorders
+alcohol_use_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+  filter(disorders == "Alcohol Use Disorders") 
+
+merged_alcohol_use <- merge(alcohol_use_disorders, unemployment_filtered, by= "Code") %>%
+  select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
+  rename(alcohol_use_disorders = value.x, 
+         Unemployment = value.y,
+         Countries = Entity.x)
+
+# scatter plot by alcohol use disorders
+ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none") 
+
+# SCATTER PLOTS 
+ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+ggplot(merged_depressive_disorders, aes(x = Unemployment, y = depressive_disorders_rates, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+ggplot(merged_drug_use, aes(x = Unemployment, y = drug_use_disorders_rates, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+ggplot(merged_bd, aes(x = Unemployment, y = Bipolar_disorders_rates, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia, color = Countries)) +
+  geom_point() +
+  theme_linedraw() +
+  theme(legend.position = "none")
+
+# change look of points: geom_point(shape = number, size = number)
 # change shape per group 
 # ggplot(data, aes(x = x, y = y, color = group, shape = group))
 
 # legend customization
 # guides(color = guide_legend(title = "Title"))
+# get rid of legend by theme(legend.position = "none")
 # custom key labels -- scale_color_discrete(labels = c("G1", "G2", "G3"))
