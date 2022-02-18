@@ -1,4 +1,6 @@
 # Summary file
+
+# set working directory
 setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
 
 source("p02.R")
@@ -90,12 +92,8 @@ lowest_prevalence <- mental_health_gov %>%
    pull(Regime)
 lowest_prevalence
 
-# What is the correlation between unemployment rates and the prevalence of mental illnesses in each country?
-
-# (calculate a correlation coefficient - like a Pearson's R or p-value)
-source("p02.R")
+# How does unemployment rate correlate to mental health issues? 
 source("chart_1.R")
-
 mh_correlation_filter <- mental_health %>%
   filter(Year == max(Year)) %>%
   group_by(Code, Entity) %>%
