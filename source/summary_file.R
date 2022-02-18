@@ -1,4 +1,6 @@
 # Summary file
+setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
+
 source("p02.R")
 
 # Which continent/region has the most mental health problems by the most recent date? -----
