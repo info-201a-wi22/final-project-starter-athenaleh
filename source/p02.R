@@ -35,7 +35,11 @@ View(unemployment)
 
 
 #government dataset --------------
+<<<<<<< HEAD
 government <- read_csv("../data/Government.csv")
+=======
+government <- read_csv("../data/Government.xls.csv")
+>>>>>>> 904adce58a74d5aaad3840ff0efd32cb378c5263
 View(government)
 colnames(government)
 government <- government %>%
@@ -62,7 +66,11 @@ mental_health_gov <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   group_by(Regime)%>%
   summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
+<<<<<<< HEAD
 View(mental_health_gov)
 
 
 
+=======
+View(mental_health_gov)
+>>>>>>> 904adce58a74d5aaad3840ff0efd32cb378c5263
