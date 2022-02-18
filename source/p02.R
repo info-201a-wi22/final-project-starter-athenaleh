@@ -6,9 +6,8 @@ library(tidyverse)
 library(stringr)
 colnames(mental_health)
 
-##cleaning up `mental_health` data frame
 mental_health <- mental_health %>%
-  rename(Scizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
+  rename(Schizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
          "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
          "Anxiety Disroders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Bipolar Disorders" = Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.,
@@ -74,7 +73,6 @@ mental_health_unemp <- mental_health %>%
 View(mental_health_unemp)
 
 colnames(aggregate_list)
-
 
 #AGGREGATE LIST-----
 aggregate_list <- mental_health %>%
