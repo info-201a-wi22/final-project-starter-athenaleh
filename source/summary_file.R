@@ -3,6 +3,11 @@ setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
 
 source("p02.R")
 
+# libraries
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+
 # Which continent/region has the most mental health problems by the most recent date? -----
 # (This is where mental health has to be most prioritized)
 highest_region <- aggregate_list%>%
@@ -86,9 +91,48 @@ lowest_prevalence <- mental_health_gov %>%
   pull(Regime)
 lowest_prevalence
 
-# What is the correlation between unemployment rates and the prevalence of mental illnesses?
+# What is the correlation between unemployment rates and the prevalence of mental illnesses in 2019?
 # (calculate a correlation coefficient - like a Pearson's R or p-value)
+source("p02.R")
+source("chart_1.R")
 
+mh_correlation_filter <- mental_health %>%
+  filter(Year == max(Year)) %>%
+  group_by(Code, Entity) %>%
+  distinct(Entity, .keep_all=T) %>% 
+  filter(Code != "") %>%
+  rename(Schizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
+         "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
+         "Anxiety Disorders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
+         "Bipolar Disorders" = Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.,
+         "Drug Use Disorders" = Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.,
+         "Depressive Disorders" = Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.,
+         "Alcohol Use Disorders" = Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.
+  ) %>%
+  summarize(schizophrenia_avg = mean(Schizophrenia), 
+            bipolar_avg = mean(`Bipolar Disorders`), 
+            anxiety_avg = mean(`Anxiety Disorders`), 
+            drug_avg = mean(`Drug Use Disorders`), 
+            depressive_avg = mean(`Depressive Disorders`), 
+            alcohol_avg = mean(`Alcohol Use Disorders`)) 
+View(mh_correlation_filter)
+
+unemployment_cor_filter <- unemployment_filtered %>%
+  select("Code", "Entity", "value") %>%
+  rename(Unemployment_rate = value)
+
+schizo_avg_filter <- mh_correlation_filter %>%
+  select(Code, Entity, schizophrenia_avg)
+
+merge_schizo_unemployment <- merge(schizo_avg_filter, unemployment_cor_filter, by = "Code") %>%
+  select("Entity.x", "schizophrenia_avg", "Unemployment_rate")
+
+
+summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)%>%
+  left_join(government, by= c("Entity", "Year"))%>%
+  filter(Code != "")%>%
+  group_by(Regime)%>%
+  summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
 
 
 
