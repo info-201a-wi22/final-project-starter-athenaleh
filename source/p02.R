@@ -1,5 +1,5 @@
 #original dataset with all the mental health issues ---------
-mental_health <- read.csv("data/prevalence-by-mental-and-substance-use-disorder.csv")
+mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
 View(mental_health)
 library(dplyr)
 library(tidyverse)
@@ -22,7 +22,7 @@ mental_health <- mental_health %>%
 View(mental_health)
 
 #Unemployment dataset----------
-unemployment <- read.csv("data/unemployment-rate.csv")
+unemployment <- read.csv("../data/unemployment-rate.csv")
 View(unemployment)
 colnames(unemployment)
 
@@ -35,7 +35,7 @@ View(unemployment)
 
 
 #government dataset --------------
-government <- read_csv("data/Government.csv")
+government <- read_csv("../data/Government.csv")
 View(government)
 colnames(government)
 government <- government %>%
@@ -63,9 +63,6 @@ mental_health_gov <- mental_health %>%
   group_by(Regime)%>%
   summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
 View(mental_health_gov)
-
-
-
 
 
 
