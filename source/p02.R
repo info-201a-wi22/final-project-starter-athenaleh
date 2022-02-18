@@ -62,7 +62,9 @@ mental_health_gov <- mental_health %>%
   left_join(government, by= c("Entity", "Year"))%>%
   group_by(Regime)%>%
   summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
-View(mental_health_gov)  
 
+
+
+View(mental_health_gov)  
 
 View(mental_health_unemp)
