@@ -64,13 +64,6 @@ mental_health_gov <- mental_health %>%
   summarize("Regime Mental Health Avg"= mean(Avg_Percentage))
 View(mental_health_gov)
 
-mental_health_unemp <- mental_health %>%
-  merge(unemployment, by="Code")%>%
-  group_by(Code)%>%
-  summarize("Avg_Percentage" = sum(Scizophrenia, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`, na.rm=T)/7)
-
-
-View(mental_health_unemp)
 
 colnames(aggregate_list)
 

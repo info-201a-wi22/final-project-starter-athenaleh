@@ -17,6 +17,5 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
-source("../source/data_access.R")
 source("../source/p02.R")
 ```
