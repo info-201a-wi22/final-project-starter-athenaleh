@@ -8,14 +8,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## What is this file for?
-
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
-
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
+```{r, include = F}
 source("../source/p02.R")
 ```
+
+
