@@ -87,17 +87,11 @@ lowest_prevalence <- mental_health_gov %>%
    pull(Regime)
 lowest_prevalence
 
-<<<<<<< HEAD
-# How does the unemployment rate correlate to mental health issues? 
-# We will approach this question by taking an average of all the mental health issues. 
-# We will compare the numbers for each country with the unemployment rate per countries. 
-=======
 # What is the correlation between unemployment rates and the prevalence of mental illnesses in each country?
 
 # (calculate a correlation coefficient - like a Pearson's R or p-value)
 source("p02.R")
 source("chart_1.R")
->>>>>>> 03adc37b8dde8408ec748fba95be730cb025aac8
 
 mh_correlation_filter <- mental_health %>%
   filter(Year == max(Year)) %>%
