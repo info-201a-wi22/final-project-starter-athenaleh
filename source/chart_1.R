@@ -6,8 +6,6 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
-# source https://r-charts.com/correlation/scatter-plot-group-ggplot2/
-
 # set working directory
 setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
 
@@ -61,6 +59,8 @@ merged_schizophrenia <- merge(schizophrenia, unemployment_filtered, by= "Code") 
          Unemployment = value.y,
          Countries = Entity.x)
 
+# source used https://r-charts.com/correlation/scatter-plot-group-ggplot2/ to
+# create scatter plot 
 # scatter plot by Schizophrenia
 ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia)) +
   geom_point() 
@@ -152,7 +152,7 @@ ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, colo
   theme_linedraw() +
   theme(legend.position = "none") 
 
-# SCATTER PLOTS 
+# SCATTER PLOTS - finalized w/ designs
 ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, color = Countries)) +
   geom_point() +
   theme_linedraw() +
