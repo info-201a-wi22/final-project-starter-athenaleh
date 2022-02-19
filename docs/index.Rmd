@@ -47,10 +47,18 @@ source("../source/aggregate_file.R")
 +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 # Summary Information:
+```{r, echo = FALSE}
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+source("../source/summary_file.R")
+```
+Searching for the differing prevalence of mental health, we have found an interesting understanding of its layout in the world. The most prevalent mental health problem at this time among all the countries is `r most_prevelant_problem` and so we have identified this as the most widespread issue that needs to be addressed globally. This is a consistent problem, as the prevalent mental health problem in the first recorded year was also `r most_prevelant_problem_early`. The country with the most mental health problems by the most recent date, which can be understood as the place where mental health has to be most prioritized is `r highest_region` with an average rate `highest_amount`. Lessons can be extrapolated from the country with the lowest prevalence of mental illnesses, `r lowest_region`, on how governments can minimize mental illnesses to better serve their citizens. The type of government that produces the lowest prevalence of mental illnesses is `r lowest_prevalence`, however its important to recognize that this may be skewed because authoritative countries may have under reported values, or there may be going on that we cannot see in the collection process, and this limitation applies to the lowest country. We don't quite see a correlation between mental illness rates and the unemployment rate as many countries have higher or lower unemployment rates unrelated to a pattern.
 
 # Aggregate List:
 
-```{r, include = T, echo =F}
+```{r, source, include = T, echo = FALSE, warning = FALSE}
+source("../source/aggregate_file.R")
 library(knitr)
 kable(mental_health_gov)
 ```
@@ -119,109 +127,24 @@ This scatter plot shows the points of each country of the eating disorder rates 
 
 ## Chart 2
 
-#Arianna - Maps
-# libraries
-#install.packages("ggplot2")
+```{r, include=F}
 library(ggplot2)
-library(dplyr)
-library(reshape2)
-# install.packages("ggmap")
+library(reshape)
 library(ggmap)
-# install.packages("leaflet")
 library(leaflet)
+setwd("../source")
+source("chart_2.R")
+```
 
-# source https://r-charts.com/correlation/scatter-plot-group-ggplot2/
-
-# set working directory
-setwd("~/Documents/Info201Code/final-project-starter-athenaleh/source")
-
-# clear working environment
-rm(list=ls())
-
-# data access
-source("data_access.R")
-
-# use the data - should represent prevalence of mental disorders around the 
-#world
-
-##cleaning up `mental_health` data frame - copied from p02.R
-mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
-mental_health <- mental_health %>%
-  rename(Scizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
-         "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
-         "Anxiety Disorders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
-         "Bipolar Disorders" = Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.,
-         "Drug Use Disorders" = Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.,
-         "Depressive Disorders" = Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.,
-         "Alcohol Use Disorders" = Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.
-  )%>%
-  group_by(Entity)%>%
-  filter(Year >= 1991)%>%
-  filter(Year <= 2012)
-View(mental_health)
-
-#filtering down - getting average stats for all mental health illness columns; one stat per Entity
-averaging_location <- mental_health %>% 
-  group_by(Entity) %>% 
-  summarize(Scizophrenia = mean(Scizophrenia), 
-            `Bipolar Disorders` = mean(`Bipolar Disorders`), 
-            `Eating Disorders`= mean(`Eating Disorders`), 
-            `Anxiety Disorders`=mean(`Anxiety Disorders`), 
-            `Drug Use Disorders`=mean(`Drug Use Disorders`), 
-            `Depressive Disorders`=mean(`Depressive Disorders`), 
-            `Alcohol Use Disorders`=mean(`Alcohol Use Disorders`)) 
-    
-    (Code != "") #filtering down to only countries
-View(averaging_location)
-
-#only mental health data
-mental_h <- averaging_location %>% 
-  subset(select = -Entity)
-View(mental_h)
-#
-#average ALL mental disorders 
-avg_mental <- rowMeans(mental_h, na.rm = FALSE, dims = 1)
-print(avg_mental)
-
-l_m <- data.frame(averaging_location, avg_mental) %>% 
-  subset(select = -Scizophrenia) %>% 
-  subset(select = -Bipolar.Disorders) %>% 
-  subset(select = -Eating.Disorders) %>% 
-  subset(select = -Anxiety.Disorders) %>% 
-  subset(select = -Drug.Use.Disorders) %>% 
-  subset(select = -Depressive.Disorders) %>% 
-  subset(select = -Alcohol.Use.Disorders) %>% 
-  rename(region = Entity)
-
-#creating actual map - ggplot2 (world)
-#step1 - joining map data to mental health data
-mapdata <- map_data("world") #ggplot2
-View(mapdata)
-mapdata <- left_join(mapdata, l_m, by="region")
-View(mapdata)
-
-#step2 - cleaning up mapdata
-mapdata1 <-mapdata %>% filter(!is.na(mapdata$avg_mental))
-View(mapdata1)
-
-#creating basic map
-map1 <- ggplot(mapdata1, aes( x = long, y = lat, group = group)) +
-  geom_polygon(aes(fill = avg_mental), color = "black")
-map1
-
-#adding cool gradient to basic map - more advanced map
-map2 <- map1 + scale_fill_gradient(name = "avg mental health disorders", low = "yellow", high = "red", na.value = "grey50") +
-  theme(axis.text.x = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks = element_blank(), 
-        axis.title.y = element_blank(),
-        axis.title.x = element_blank(),
-        rect = element_blank())
-map2
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(map2)
+```
+This chart shows the prevalence of mental illnesses around the world. The more red the location, the more prevalent mental illnesses are. The data represented through this map is the mean of all mental illnesses that we investigated; schizophrenia, bipolar disorder, etc (can you please list them all). This resulted in one average mental illness rate per entity.  This is how we chose to represent the significance of mental health around the world. Governments of the locations with the more prevalent ratings of mental illnesses should step up and implement actionable items to improve the mental health of their citizens
 
 ## Chart 3
 
-```{r chart 3, include=F}
+```{r, include=F}
 library(ggplot2)
 setwd("../source")
 source("chart_3.R")
@@ -231,3 +154,4 @@ source("chart_3.R")
 library(ggplot2)
 plot(chart_3)
 ```
+This chart shows the relationship between the government type of a country and the prevalence of mental disorders. The bars are made of stacks of each different illness prevalence bar for each regime type which creates a bar chart where we can compare the average mental illness prevalences. Democracies seem to have the highest average disorder rates, which could be emblematic of having to engage with government and the frustration around that, but it could also be that mental disorder rates are more freely recorded in democracies. Depressive and anxiety disorders are the most prevalent across the board that slightly vary. The most clear differences are that alcohol use disorders are much less prevalent in monarchies and depressive drug use disorders are higher in democracies. 

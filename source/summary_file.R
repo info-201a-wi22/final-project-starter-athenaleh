@@ -1,8 +1,5 @@
 # Summary file
 
-# set working directory
-setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
-
 source("aggregate_file.R")
 
 # libraries
