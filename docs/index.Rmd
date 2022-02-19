@@ -150,4 +150,5 @@ source("chart_3.R")
 library(ggplot2)
 plot(chart_3)
 ```
+
 This chart shows the relationship between the government type of a country and the prevalence of mental disorders. The bars are made of stacks of each different illness prevalence bar for each regime type which creates a bar chart where we can compare the average mental illness prevalences. Democracies seem to have the highest average disorder rates, which could be emblematic of having to engage with government and the frustration around that, but it could also be that mental disorder rates are more freely recorded in democracies. Depressive and anxiety disorders are the most prevalent across the board that slightly vary. The most clear differences are that alcohol use disorders are much less prevalent in monarchies and depressive drug use disorders are higher in democracies. 
