@@ -5,7 +5,6 @@ library(dplyr)
 library(tidyverse)
 library(stringr)
 
-
 mental_health <- mental_health %>%
   rename(Schizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
          "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
@@ -154,7 +153,7 @@ lowest_prevalence <- mental_health_gov %>%
 lowest_prevalence
 
 # How does unemployment rate correlate to mental health issues? 
-source("chart_1.R")
+source("../source/Chart_1_Athena.R")
 mh_correlation_filter <- mental_health %>%
   filter(Year == max(Year)) %>%
   group_by(Code, Entity) %>%
