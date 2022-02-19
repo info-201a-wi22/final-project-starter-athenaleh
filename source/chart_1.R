@@ -6,8 +6,7 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
-# set working directory
-setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
+
 
 # data access
 source("data_access.R")
