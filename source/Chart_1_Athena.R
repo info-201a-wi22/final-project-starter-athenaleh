@@ -1,13 +1,16 @@
 # clear working environment
 rm(list=ls())
 
+# working directory
+# setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
+
 # libraries
 library(ggplot2)
 library(dplyr)
 library(reshape2)
 
 # data access
-source("data_access.R")
+source("../source/data_access.R")
 
 # use the data
 mental_health <- read_mental_health_dataset()
@@ -52,7 +55,7 @@ merged_schizophrenia <- merge(schizophrenia, unemployment_filtered, by= "Code") 
 # create scatter plots
 
 # Bipolar Disorders
-bipolar_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+bipolar_disorders <- mental_health_filtered %>% 
   filter(disorders == "Bipolar Disorders") 
 
 # merge unemployment and bipolar disorder data sets together using code
@@ -63,7 +66,7 @@ merged_bd <- merge(bipolar_disorders, unemployment_filtered, by= "Code") %>%
          Countries = Entity.x)
 
 # Eating Disorders
-eating_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+eating_disorders <- mental_health_filtered %>%
   filter(disorders == "Eating Disorders") 
 
 merged_ed <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
@@ -73,17 +76,17 @@ merged_ed <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
          Countries = Entity.x)
 
 # Anxiety Disorders
-anxiety_disroders <- mental_health_filtered %>% # filter it to only have Schizophrenia
-  filter(disorders == "Anxiety Disorders") 
+anxiety_disorders <- mental_health_filtered %>% 
+  filter(disorders == "Anxiety Disroders") 
 
-merged_anxiety_disorders <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
+merged_anxiety_disorders <- merge(anxiety_disorders, unemployment_filtered, by= "Code") %>%
   select("Entity.x", "disorders", "value.x", "variable", "value.y") %>%
   rename(anxiety_disorders_rates = value.x, 
          Unemployment = value.y,
          Countries = Entity.x)
 
 # Drug Use Disorders
-drug_use_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+drug_use_disorders <- mental_health_filtered %>% 
   filter(disorders == "Drug Use Disorders") 
 
 merged_drug_use <- merge(drug_use_disorders, unemployment_filtered, by= "Code") %>%
@@ -93,7 +96,7 @@ merged_drug_use <- merge(drug_use_disorders, unemployment_filtered, by= "Code") 
          Countries = Entity.x)
 
 # Depressive Disorders
-depressive_disorders <- mental_health_filtered %>% # filter it to only have Schizophrenia
+depressive_disorders <- mental_health_filtered %>% 
   filter(disorders == "Depressive Disorders") 
 
 merged_depressive_disorders <- merge(eating_disorders, unemployment_filtered, by= "Code") %>%
@@ -138,12 +141,13 @@ schiz_unemp <- ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophre
   theme_linedraw() +
   theme(legend.position = "none")
 
-anxiety_unemp <- ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates)) +
+anxiety_unemp <- ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-eating_disorder_unemp <- ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates)) +
+eating_disorder_unemp <- ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
+
