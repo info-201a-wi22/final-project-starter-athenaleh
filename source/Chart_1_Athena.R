@@ -6,9 +6,6 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
-# set working directory
-setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
-
 # data access
 source("data_access.R")
 
@@ -116,37 +113,37 @@ merged_alcohol_use <- merge(alcohol_use_disorders, unemployment_filtered, by= "C
          Countries = Entity.x)
 
 # SCATTER PLOTS - finalized w/ designs
-ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, color = Countries)) +
+alc_unemp <- ggplot(merged_alcohol_use, aes(x = Unemployment, y = alcohol_use_disorders, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_depressive_disorders, aes(x = Unemployment, y = depressive_disorders_rates, color = Countries)) +
+depressive_unemp <- ggplot(merged_depressive_disorders, aes(x = Unemployment, y = depressive_disorders_rates, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_drug_use, aes(x = Unemployment, y = drug_use_disorders_rates, color = Countries)) +
+drug_use_unemp <- ggplot(merged_drug_use, aes(x = Unemployment, y = drug_use_disorders_rates, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_bd, aes(x = Unemployment, y = Bipolar_disorders_rates, color = Countries)) +
+bipolar_dis_unemp <- ggplot(merged_bd, aes(x = Unemployment, y = Bipolar_disorders_rates, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia, color = Countries)) +
+schiz_unemp <- ggplot(merged_schizophrenia, aes(x = Unemployment, y = Schizophrenia, color = Countries)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates)) +
+anxiety_unemp <- ggplot(merged_anxiety_disorders, aes(x = Unemployment, y = anxiety_disorders_rates)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")
 
-ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates)) +
+eating_disorder_unemp <- ggplot(merged_ed, aes(x = Unemployment, y = eating_disorders_rates)) +
   geom_point() +
   theme_linedraw() +
   theme(legend.position = "none")

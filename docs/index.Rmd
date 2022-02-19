@@ -61,8 +61,40 @@ This list shows all the regime types and the average mental health issues that w
 ## Chart 1
 ```{r, source, include = T, echo = FALSE, warning = FALSE}
 setwd("~/Documents/Info201Code/Project/final-project-starter-athenaleh/source")
-source("chart_1.R")
+source("Chart_1_Athena.R")
+```
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(schiz_unemp)
+```
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(alc_unemp)
 ```
 
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(depressive_unemp)
+```
+
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(drug_use_unemp)
+```
+
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(bipolar_dis_unemp)
+```
+
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(anxiety_unemp)
+```
+
+```{r, include=T, echo=F}
+library(ggplot2)
+plot(eating_disorder_unemp)
+```
 
 
