@@ -55,8 +55,8 @@ View(mental_health_gov_long)
 
 # Stacked bar plot
 chart_3 <- ggplot(mental_health_gov_long, aes(x = Regime, y = prevalence, fill = disorder)) + 
-  geom_bar(position="fill", stat ="identity") +
+  geom_bar(stat ="identity") +
   scale_fill_brewer()
-
+chart_3
 
 
