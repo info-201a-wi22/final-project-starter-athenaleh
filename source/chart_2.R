@@ -57,7 +57,7 @@ View(averaging_location)
 mental_h <- averaging_location %>% 
   subset(select = -Entity)
 View(mental_h)
-
+#
 #average ALL mental disorders 
 avg_mental <- rowMeans(mental_h, na.rm = FALSE, dims = 1)
 print(avg_mental)
