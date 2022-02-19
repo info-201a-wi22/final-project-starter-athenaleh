@@ -6,6 +6,11 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
+<<<<<<< HEAD
+=======
+# set working directory
+
+>>>>>>> f67eb432fd0b171b69ad9f391284f2c932dfedbd
 # data access
 source("data_access.R")
 
