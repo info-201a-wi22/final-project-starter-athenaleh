@@ -12,45 +12,43 @@ library(leaflet)
 # source https://r-charts.com/correlation/scatter-plot-group-ggplot2/
 
 # set working directory
-setwd("~/Documents/Info201Code/final-project-starter-athenaleh/source")
+
 
 # clear working environment
-rm(list=ls())
+
 
 # data access
-source("data_access.R")
+
 
 # use the data - should represent prevalence of mental disorders around the 
 #world
 
 ##cleaning up `mental_health` data frame - copied from p02.R
-mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
-mental_health <- mental_health %>%
-  rename(Scizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
+mental_health_df <- mental_health %>%
+  mutate(Schizophrenia= Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
          "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent., 
-         "Anxiety Disorders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
+         "Anxiety Disroders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Bipolar Disorders" = Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.,
          "Drug Use Disorders" = Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Depressive Disorders" = Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.,
          "Alcohol Use Disorders" = Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.
   )%>%
+  select(Entity, Year, Schizophrenia, "Eating Disorders", "Anxiety Disroders", "Bipolar Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders")%>%
   group_by(Entity)%>%
   filter(Year >= 1991)%>%
   filter(Year <= 2012)
-View(mental_health)
+View(mental_health_df)
 
 #filtering down - getting average stats for all mental health illness columns; one stat per Entity
-averaging_location <- mental_health %>% 
+averaging_location <- mental_health_df %>% 
   group_by(Entity) %>% 
-  summarize(Scizophrenia = mean(Scizophrenia), 
+  summarize(Schizophrenia = mean(Schizophrenia), 
             `Bipolar Disorders` = mean(`Bipolar Disorders`), 
             `Eating Disorders`= mean(`Eating Disorders`), 
-            `Anxiety Disorders`=mean(`Anxiety Disorders`), 
+            `Anxiety Disorders`=mean(`Anxiety Disroders`), 
             `Drug Use Disorders`=mean(`Drug Use Disorders`), 
             `Depressive Disorders`=mean(`Depressive Disorders`), 
-            `Alcohol Use Disorders`=mean(`Alcohol Use Disorders`)) 
-    
-    (Code != "") #filtering down to only countries
+            `Alcohol Use Disorders`=mean(`Alcohol Use Disorders`))
 View(averaging_location)
 
 #only mental health data
@@ -63,14 +61,15 @@ avg_mental <- rowMeans(mental_h, na.rm = FALSE, dims = 1)
 print(avg_mental)
 
 l_m <- data.frame(averaging_location, avg_mental) %>% 
-  subset(select = -Scizophrenia) %>% 
+  subset(select = -Schizophrenia) %>% 
   subset(select = -Bipolar.Disorders) %>% 
   subset(select = -Eating.Disorders) %>% 
   subset(select = -Anxiety.Disorders) %>% 
   subset(select = -Drug.Use.Disorders) %>% 
   subset(select = -Depressive.Disorders) %>% 
-  subset(select = -Alcohol.Use.Disorders) %>% 
-  rename(region = Entity)
+  subset(select = -Alcohol.Use.Disorders)%>%
+  mutate(region = Entity)
+View(l_m)
 
 #creating actual map - ggplot2 (world)
 #step1 - joining map data to mental health data
