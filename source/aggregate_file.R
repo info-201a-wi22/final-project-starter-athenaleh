@@ -1,6 +1,6 @@
 #original dataset with all the mental health issues ---------
 mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
-View(mental_health)
+
 library(dplyr)
 library(tidyverse)
 library(stringr)
@@ -19,11 +19,11 @@ mental_health_df <- mental_health %>%
   group_by(Entity)%>%
   filter(Year >= 1991)%>%
   filter(Year <= 2012)
-View(mental_health_df)
+
 
 #Unemployment dataset----------
 unemployment <- read.csv("../data/unemployment-rate.csv")
-View(unemployment)
+
 colnames(unemployment)
 
 ##cleaning up data set
@@ -32,7 +32,7 @@ unemployment_df <- unemployment %>%
   select(Entity, Code, Year, "Unemployment Total Labor Force %")%>%
   group_by(Entity)%>%
   filter(Year <= 2012)
-View(unemployment_df)
+
 
 
 #government dataset --------------
@@ -45,7 +45,7 @@ government_df <- government %>%
   group_by(Entity)%>%
   filter(Year > 1990) %>%
   select(Entity, Code, Year, Regime)
-View(government_df)
+
 
 
 
@@ -53,7 +53,7 @@ table <- mental_health_df %>%
   left_join(government_df, by= c("Entity", "Year"))%>%
   left_join(unemployment_df, by=c("Entity", "Year"))
 
-View(table)
+
 
 
 # the average mental health problem percentage through each regime (aggregate list)
@@ -63,8 +63,11 @@ mental_health_gov <- mental_health_df %>%
   left_join(government_df, by= c("Entity", "Year"))%>%
   filter(Code != "")%>%
   group_by(Regime)%>%
-  summarize("Avg"= mean(Avg))
-View(mental_health_gov)
+  summarize("Avg"= mean(Avg))%>%
+  mutate_if(is.numeric, round, digits = 2)
+
+
+
 
 
 

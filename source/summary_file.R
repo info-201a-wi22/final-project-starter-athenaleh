@@ -35,7 +35,7 @@ highest_amount
 
 # What is the most prevalent mental health problem currently?-----
 library(reshape2)
-most_prevelant_problem <- mental_health_df %>%
+most_prevelant_problem <- mental_health_df%>%
   filter(Year == max(Year))%>%
   group_by(Year)%>%
   summarize(schizophrenia = mean(Schizophrenia), 

@@ -43,28 +43,31 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Summary Information:
 
-```{r ,include= FALSE, echo=FALSE}
+```{r, include= F, echo=F}
 library(dplyr)
 library(reshape2)
 source("../source/aggregate_file.R")
 source("../source/summary_file.R")
 ```
 
-```{r ,include=T, echo=F}
-most_prevelant_problem0 <- "**most_prevelant_problem**"
-most_prevelant_problem_early0 <- "**most_prevelant_problem_early**"
-highest_region0 <- "**highest_region**"
-highest_amount0 <- "**highest_amount**"
-lowest_region0 <- "**lowest_region**"
-lowest_prevalence0 <- "**lowest_prevalence**"
+```{r, include=F, echo=F}
+most_prevelant_problem0 <- most_prevelant_problem
+most_prevelant_problem_early0 <- print(most_prevelant_problem_early)
+highest_region0 <- print(highest_region)
+highest_amount0 <- print(highest_amount)
+lowest_region0 <- print(lowest_region)
+lowest_prevalence0 <- print(lowest_prevalence)
 ```
 
 Searching for the differing prevalence of mental health, we have found an interesting understanding of its layout in the world. The most prevalent mental health problem at this time among all the countries is `r most_prevelant_problem0` and so we have identified this as the most widespread issue that needs to be addressed globally. This is a consistent problem, as the most prevalent mental health problem in the first recorded year was also `r most_prevelant_problem_early0`. The country with the most mental health problems by the most recent date, which can be understood as the place where mental health has to be most prioritized is `r highest_region0` with an average rate `r highest_amount0`. Lessons can be extrapolated from the country with the lowest prevalence of mental illnesses, `r lowest_region0`, on how governments can minimize mental illnesses to better serve their citizens. The type of government that produces the lowest prevalence of mental illnesses is `r lowest_prevalence0`, however it's important to recognize that this may be skewed because authoritative countries may have under reported values, or there may be going on that we cannot see in the collection process, and this limitation applies to the lowest country. We don't quite see a correlation between mental illness rates and the unemployment-rate as many countries have higher or lower unemployment rates unrelated to a pattern.
 
 # Aggregate List:
 
-```{r, include = F, echo = FALSE}
+```{r, include = T, echo = F, warning=F, message=F}
 library(knitr)
+library(dplyr)
+library(tidyverse)
+library(stringr)
 source("../source/aggregate_file.R")
 kable(mental_health_gov)
 ```
@@ -75,8 +78,9 @@ This list shows all the regime types and the average mental health issues that w
 
 ## Chart 1
 
-```{r, source, include=F echo = FALSE, warning = FALSE}
+```{r, include = F, echo = F}
 library(ggplot2)
+library(plotly)
 source("../source/Chart_1_Athena.R")
 ```
 
@@ -85,7 +89,7 @@ library(plotly)
 plot(schiz_unemp)
 ```
 
-This is a scatterplot that shows the unemployment rates and Schizophrenia rates of all the countries in 2019. The purpose of this scatter plot is to show the correlation between the rate of Schizophrenia and the unemployment rate. From this chart, we do not see a clear correlation. That means there is no association between Schizophrenia and unemployment rate.
+This is a scatter plot that shows the unemployment rates and Schizophrenia rates of all the countries in 2019. The purpose of this scatter plot is to show the correlation between the rate of Schizophrenia and the unemployment rate. From this chart, we do not see a clear correlation. That means there is no association between Schizophrenia and unemployment rate.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
@@ -131,13 +135,14 @@ This scatter plot shows the points of each country of the eating disorder rates 
 
 ## Chart 2
 
-```{r, include=F}
+```{r, include=F, echo=F}
 library(ggplot2)
 library(reshape)
 library(ggmap)
 library(leaflet)
-setwd("../source")
-source("chart_2.R")
+library(dplyr)
+source("../source/aggregate_file.R")
+source("../source/chart_2.R")
 ```
 
 ```{r, include=T, echo=F}
@@ -149,13 +154,13 @@ This chart shows the prevalence of mental illnesses around the world. The more r
 
 ## Chart 3
 
-```{r, include=F, echo=F}
+```{r, include=F, echo=F, warning=F, message=F}
 library(ggplot2)
 setwd("../source")
 source("chart_3.R")
 ```
 
-```{r, include=T, echo=F}
+```{r, include=T, echo=F, warning=F, message=F}
 library(ggplot2)
 plot(chart_3)
 ```
