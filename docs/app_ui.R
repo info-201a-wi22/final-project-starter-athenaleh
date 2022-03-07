@@ -15,16 +15,25 @@ ui <- fluidPage(
   tabPanel("Interactive Page 2",
            sidebarLayout(
              sidebarPanel(),
-             mainPanel(plotlyOutput("chart_2")),
+             mainPanel(plotlyOutput("chart_2"),
              p("")
-           )),
+           ))),
   tabPanel("Interactive Page 3",
            sidebarLayout(
              sidebarPanel(),
-             mainPanel(plotlyOutput("chart_3")),
+             mainPanel(plotlyOutput("chart_3"),
              p("")
            )),
   tabPanel("Summary",
              p("")
+<<<<<<< HEAD
            )
       )
+=======
+           ),
+  tabPanel("Report Page",
+           p(""))
+      )
+)
+  
+>>>>>>> c3bcbc948c2605c1413eb772e46ae01e1d71d415
