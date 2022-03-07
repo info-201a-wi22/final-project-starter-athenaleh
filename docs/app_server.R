@@ -1,6 +1,5 @@
 # server - put all codes here
 
-<<<<<<< HEAD
 # library
 library("shiny")
 library("plotly")
@@ -15,13 +14,11 @@ ggplotly(schiz_unemp)
 ggplotly(anxiety_unemp)
 ggplotly(eating_disorder_unemp)
 
-# If statement value = chart 1, then, show 
-# Else value = 2, show chart 2 
-# Reactive function that renders the chart 
-# Output - plot the chart in the output - check to see when the pull down changes, is that A or B 
+# If statement value = chart 1, then, show
+# Else value = 2, show chart 2
+# Reactive function that renders the chart
+# Output - plot the chart in the output - check to see when the pull down changes, is that A or B
 
-=======
 server <- function(input, output){
-  
+
 }
->>>>>>> dd72001bcab087ce0e2f2da55dbc81dd409298a1
