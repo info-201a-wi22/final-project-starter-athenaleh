@@ -25,12 +25,8 @@ ui <- fluidPage(
              p("")
            )),
   tabPanel("Summary",
-           sidebarLayout(
-             sidebarPanel(),
-             mainPanel(plotlyOutput("chart_1")),
              p("")
-           ))
-    
-  )
+           )
+      )
 
   
