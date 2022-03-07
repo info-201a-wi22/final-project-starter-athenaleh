@@ -83,10 +83,19 @@ colnames(mental_health_df)
  most_prevelant_problem_early # anxiety_avg
 
 # What type of government produces the lowest prevalence of mental illnesses?-----
-lowest_prevalence <- mental_health_gov %>%
-   filter(Avg==min(Avg))%>%
+lowest_prevalence_mil <- mental_health_gov %>%
+   filter(Avg==min(Avg),
+          Regime == "Military")%>%
    pull(Regime)
+lowest_prevalence_mil
+
+lowest_prevalence_mul <- mental_health_gov %>%
+  filter(Avg==min(Avg),
+         Regime == "Multiparty")%>%
+  pull(Regime)
+lowest_prevalence_mul
+
+lowest_prevalence <- mental_health_gov %>%
+  filter(Avg==min(Avg))%>%
+  pull(Regime)
 lowest_prevalence
-
-
-
