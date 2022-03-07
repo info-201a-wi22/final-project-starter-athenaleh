@@ -32,7 +32,7 @@ server <- function(input, output){
         theme(legend.position = "none") +
         labs(title = "Drug Use Disorders in relation to Unemployment Rates",
              x = "Unemployment Rate",
-             y = "DDrug Use Disorders")
+             y = "Drug Use Disorders")
     } else if(input$mental_disorders == "bd") {
       ggplot(merged_bd, aes(x = Unemployment, y = Bipolar_disorders_rates, color = Countries)) +
         geom_point() +
@@ -67,7 +67,6 @@ server <- function(input, output){
              y = "Eating Disorders")} })
 
     output$chart_2 <- renderPlotly({
-
                mental_health_df <- mental_health %>%
                  rename(region = Entity) %>%
                  group_by(region)%>%

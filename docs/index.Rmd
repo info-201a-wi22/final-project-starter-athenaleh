@@ -86,49 +86,49 @@ source("../source/chart_1.R")
 
 ```{r, include=T, echo=F}
 library(plotly)
-plot(schiz_unemp)
+plot(schizophrenia)
 ```
 
 This is a scatter plot that shows the unemployment rates and Schizophrenia rates of all the countries in 2019. The purpose of this scatter plot is to show the correlation between the rate of Schizophrenia and the unemployment rate. From this chart, we do not see a clear correlation. That means there is no association between Schizophrenia and unemployment rate.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(alc_unemp)
+plot(alcohol_use)
 ```
 
 This is a scatter plot that shows the unemployment rate and the rate of alcohol use disorders. The purpose is to show if there is a correlation between these two variables. From the chart, we can deduce that there is a slight correlation. As the rate of unemployment increases, the rate of alcohol use disorder increases.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(depressive_unemp)
+plot(depressive_disorders)
 ```
 
 This is the scatter plot that shows depressive disorders rates and unemployment rate. The purpose of this is to show if there is a correlation between unemployment rate and depressive disorder rates. From this chart, we deduce that there is no correlation because it is close to being a straight line.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(drug_use_unemp)
+plot(drug_use)
 ```
 
 This scatter plot shows the correlation between unemployment rate and drug use disorder rates. Each point shows a country. From this chart, we can see that there is no correlation.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(bipolar_dis_unemp)
+plot(bd)
 ```
 
 This is a scatter plot to show if there is a correlation between two points. We do not see a correlation between the unemployment rate and the bipolar disorders rates.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(anxiety_unemp)
+plot(anxiety)
 ```
 
 This scatter plot shows points of each country of the anxiety disorder rates and unemployment rates. From this chart, we can deduce that there is no clear correlation.
 
 ```{r, include=T, echo=F}
 library(ggplot2)
-plot(eating_disorder_unemp)
+plot(ed)
 ```
 
 This scatter plot shows the points of each country of the eating disorder rates and the unemployment rate. It slightly creates a straight line, which means that there is no correlation.
