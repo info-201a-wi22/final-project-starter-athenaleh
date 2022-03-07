@@ -31,8 +31,6 @@ mental_health_filtered <- mental_health %>%
   rename(disorders = variable) %>%
   filter(Code != "") # remove empty columns of Code because they're not countries
 
-View(mental_health_filtered)
-
 # unemployment rate
 unemployment_filtered <- unemployment_rate %>%
   rename(Unemployment=Unemployment..total....of.total.labor.force...modeled.ILO.estimate.) %>%
@@ -41,7 +39,6 @@ unemployment_filtered <- unemployment_rate %>%
   distinct(Entity, .keep_all=T) %>% # remove duplicates
   filter(Code != "") 
 
-View(unemployment_filtered)
 
 # x unemployment rate 
 # y rates of disorders of each country
