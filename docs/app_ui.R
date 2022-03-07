@@ -10,9 +10,9 @@ ui <- fluidPage(
   tabPanel("Interactive Page 1",
            sidebarLayout(
              sidebarPanel(),
-             mainPanel(plotlyOutput("chart_1")),
+             mainPanel(plotlyOutput("chart_1"),
              p("")
-           )),
+           ))),
   tabPanel("Interactive Page 2",
            sidebarLayout(
              sidebarPanel(),
