@@ -1,5 +1,6 @@
 # app_ui 
 
+hello 
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(

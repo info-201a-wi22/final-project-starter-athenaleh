@@ -30,14 +30,6 @@ output$chart_1 <- renderPlotly({
 # Reactive function that renders the chart
 # Output - plot the chart in the output - check to see when the pull down changes, is that A or B
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4c31219ce0c67dfe747013a95330e29e5a43fe74
 server <- function(input, output){
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4c31219ce0c67dfe747013a95330e29e5a43fe74
