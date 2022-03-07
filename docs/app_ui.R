@@ -29,7 +29,7 @@ ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
-             p()),
+             p("h")),
   tabPanel("Unemployment and Mental Disorders Plots",
            sidebarLayout(
              sidebarPanel(selectInput("mental_disorders",
@@ -42,14 +42,12 @@ ui <- fluidPage(
                                                   "Eating Disorder" = "ed"),
                                       selected = "alcohol_use")),
              mainPanel(plotlyOutput("chart_1"),
-             p("These scatter plots aim to show the correlation between the unemployment rates and mental disorder 
-             rates of countries around the world in 2019. If the points are scattered 
-             throughout the plot, there are no clear correlation. 
-              However, if the points are concentrated in an area, we can deduce that there is some type of 
-              correlation between those points. We wanted to see if there was unemployment rate would impact 
-              mental disorder rates. We thought that if we could find a relationship, we could think of 
-              ways for how the government could provide support for 
-              unemployed people with mental disorders.")
+             p("These scatter plots aim to show the correlation between the unemployment rates and mental disorder"), 
+             p("rates of countries around the world in 2019. If the points are scattered"), 
+             p("throughout the plot, there are no clear correlation. However, if the points are concentrated in an area,"),
+             p("we can deduce that there is some type of correlation between those points. We wanted to see if there was"),
+             p("unemployment rate would impact mental disorder rates. We thought that if we could find a relationship,"),
+             p("we could think of ways for how the government could provide support for unemployed people with mental disorders.")
            ))),
   tabPanel("Interactive Page 2",
            sidebarLayout(
@@ -59,12 +57,6 @@ ui <- fluidPage(
              The data represented through this map are the averages of the mental illnesses that we investigated; schizophrenia, bipolar disorder, etc.
              This is how we chose to represent the significance of mental health around the world. Governments of the locations with the more prevalent
              ratings of mental illnesses should step up and implement actionable items to improve the mental health of their citizens."
-           ))),
-  tabPanel("Interactive Page 3",
-           sidebarLayout(
-             sidebarPanel(),
-             mainPanel(plotlyOutput("chart_3"),
-             p("")
            )))),
   tabPanel("Disorders by Regime",
                     sidebarLayout(
@@ -73,13 +65,7 @@ ui <- fluidPage(
                       ),
                       mainPanel(plotlyOutput("chart_3"),
                       p("This bar plot will allow users to select which disorder they would like to investigate")
-                    )),
-            tabPanel("Summary",
-                       p("")
-                     ),
-            tabPanel("Report Page",
-                     p(""))
-                )),
+                    ))),
   tabPanel("Summary",
            p("In this project, our main goal was to get a better understanding in regards to mental"),
            p("health. In doing so we hoped to get the tools to provide regions with poor mental health"),
@@ -91,6 +77,10 @@ ui <- fluidPage(
            p("issues. It turned out that both", lowest_prevalence_mil, "and", lowest_prevalence_mul, "have the lowest prevelance."),
            p("In finding the answers to these questions, we can not only find out what government type and region is thriving"),
            p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")),
-)
+  tabPanel("Report Page",
+           p("hello")
+  )))
+
+
   
 
