@@ -1,11 +1,9 @@
 # app_ui 
-<<<<<<< HEAD
-=======
 source("summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
 lowest_prevalence #government currently. 
->>>>>>> 19ed4f90e221277b942f0e0ff3b77655dcb1a6bc
+
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
@@ -37,17 +35,8 @@ ui <- fluidPage(
              sidebarPanel(),
              mainPanel(plotlyOutput("chart_3"),
              p("")
-           ))),
+           )),
   tabPanel("Summary",
-<<<<<<< HEAD
-             p("")
-           ),
-  tabPanel("Report Page",
-           p(""))
-      )
-
-
-=======
              p("In this project, our main goal was to get a better understanding in regards to mental"),
            p("health. In doing so we hoped to get the tools to provide regions with poor mental health"),
            p("to better the lives of their people. To do so, we needed to answer a few questions that would"),
@@ -58,14 +47,8 @@ ui <- fluidPage(
            p("issues. It turned out that", lowest_prevalence, "have the lowest prevelance. In finding the answers to"),
            p("these questions, we can not only find out what government type and region is thriving mentally, but we can"),
            p("then pull from their success and implement them into regions that are not doing well mentally.")
-           )),
+           ),
   tabPanel("Report Page",
            p(""))
       )
-
-
-
-
-  
-
->>>>>>> 19ed4f90e221277b942f0e0ff3b77655dcb1a6bc
+)
