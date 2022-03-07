@@ -5,7 +5,7 @@ library(dplyr)
 library(ggplot2)
 
 # data access
-source("aggregate_file.R")
+source("../source/aggregate_file.R")
 
 # use the data
 mental_health <- read_mental_health_dataset()

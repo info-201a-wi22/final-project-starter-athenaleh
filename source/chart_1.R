@@ -9,7 +9,7 @@ library(reshape2)
 
 
 # data access
-source("data_access.R")
+source("../source/data_access.R")
 
 # use the data
 mental_health <- read_mental_health_dataset()

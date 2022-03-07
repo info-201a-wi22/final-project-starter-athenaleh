@@ -1,46 +1,56 @@
 # app_ui 
 
 
+pick_me <- selectInput(
+  "which_d",
+  label = "Select Disorder",
+  choices = list("Alcohol Use Disorders" = "Alcohol Use Disorders", 
+                    "Anxiety Disorders" = "Anxiety Disroders", 
+                    "Bipolar Disorders" = "Bipolar Disorders",
+                    "Depressive Disorders" = "Depressive Disorders",
+                    "Drug Use Disorders" = "Drug Use Disorders",
+                    "Eating Disorders" = "Eating Disorders",
+                    "Schizophrenia" = "Schizophrenia"),
+  selected = "Schizophrenia",
+  multiple = TRUE
+)
+
+
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
-  tabsetPanel(
-    tabPanel("Introduction",
-             p())
-  ),
-  tabPanel("Interactive Page 1",
+   tabsetPanel(
+     tabPanel("Introduction",
+              p())
+   ),
+   tabPanel("Interactive Page 1",
+            sidebarLayout(
+              sidebarPanel(),
+              mainPanel(plotlyOutput("chart_1"),
+              p("")
+            ))),
+   tabPanel("Interactive Page 2",
+            sidebarLayout(
+              sidebarPanel(),
+              mainPanel(plotlyOutput("chart_2"),
+              p("")
+            ))),
+
+#widget and layout for chart3  - picking the disorder
+
+  tabPanel("Disorders by Regime",
            sidebarLayout(
-             sidebarPanel(),
-             mainPanel(plotlyOutput("chart_1"),
-             p("")
-           ))),
-  tabPanel("Interactive Page 2",
-           sidebarLayout(
-             sidebarPanel(),
-             mainPanel(plotlyOutput("chart_2"),
-             p("")
-           ))),
-  tabPanel("Interactive Page 3",
-           sidebarLayout(
-             sidebarPanel(),
+             sidebarPanel(
+               pick_me
+             ),
              mainPanel(plotlyOutput("chart_3"),
-             p("")
+             p("This bar plot will allow users to select which disorder they would like to investigate")
            )),
-  tabPanel("Summary",
-             p("")
-<<<<<<< HEAD
-           )
-      )
-=======
-           ),
-  tabPanel("Report Page",
-           p(""))
-      )
+   tabPanel("Summary",
+              p("")
+            ),
+   tabPanel("Report Page",
+            p(""))
+       )
 )
-<<<<<<< HEAD
 
 
-  
-=======
-  
->>>>>>> c3bcbc948c2605c1413eb772e46ae01e1d71d415
->>>>>>> 8fc47c36afde81678263fb7805a27844628ae1ce
