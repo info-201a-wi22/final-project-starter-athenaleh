@@ -14,6 +14,17 @@ ggplotly(schiz_unemp)
 ggplotly(anxiety_unemp)
 ggplotly(eating_disorder_unemp)
 
+output$chart_1 <- renderPlotly({
+  ggplot(merged_alcohol_use) +
+    geom_point(aes(x = Unemployment, y = alcohol_use_disorders, 
+                     color = Countries)) +
+    theme_linedraw() +
+    theme(legend.position = "none") + 
+    labs(title = , 
+         x = , 
+         y = ,)
+})
+
 # If statement value = chart 1, then, show
 # Else value = 2, show chart 2
 # Reactive function that renders the chart

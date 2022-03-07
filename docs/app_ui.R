@@ -27,11 +27,20 @@ ui <- fluidPage(
            )),
   tabPanel("Summary",
              p("")
+<<<<<<< HEAD
+           )
+      )
+=======
            ),
   tabPanel("Report Page",
            p(""))
       )
 )
+<<<<<<< HEAD
 
 
   
+=======
+  
+>>>>>>> c3bcbc948c2605c1413eb772e46ae01e1d71d415
+>>>>>>> 8fc47c36afde81678263fb7805a27844628ae1ce
