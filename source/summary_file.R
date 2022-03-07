@@ -1,6 +1,6 @@
 # Summary file
 
-
+source("../source/aggregate_file.R")
 
 # libraries
 library(ggplot2)
@@ -87,7 +87,6 @@ lowest_prevalence <- mental_health_gov %>%
    filter(Avg==min(Avg))%>%
    pull(Regime)
 lowest_prevalence
-
 
 
 
