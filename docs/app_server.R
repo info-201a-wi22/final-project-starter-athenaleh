@@ -1,5 +1,6 @@
 # server - put all codes here
 
+<<<<<<< HEAD
 # library
 library("shiny")
 library("plotly")
@@ -19,3 +20,8 @@ ggplotly(eating_disorder_unemp)
 # Reactive function that renders the chart 
 # Output - plot the chart in the output - check to see when the pull down changes, is that A or B 
 
+=======
+server <- function(input, output){
+  
+}
+>>>>>>> dd72001bcab087ce0e2f2da55dbc81dd409298a1
