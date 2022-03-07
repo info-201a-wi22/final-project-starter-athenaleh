@@ -64,9 +64,9 @@ server <- function(input, output){
         theme(legend.position = "none") +
         labs(title = "Eating Disorders in relation to Unemployment Rates",
              x = "Unemployment Rate",
-             y = "Eating Disorders")}
+             y = "Eating Disorders")} })
 
-             output$chart_2 <- renderPlotly({
+    output$chart_2 <- renderPlotly({
 
                mental_health_df <- mental_health %>%
                  rename(region = Entity) %>%
@@ -99,4 +99,4 @@ server <- function(input, output){
                return(map1)
   })
   }
-}
+
