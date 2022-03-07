@@ -3,17 +3,14 @@
 source("../source/summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
-<<<<<<< HEAD
 lowest_prevalence #government currently. 
-=======
-lowest_prevalence #government currently.
+
 
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                    label = 'Mental Illnesses',
                                    choices = c("Bipolar Disorders", "Eating Disorders", "Anxiety Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders"),
                                    selected = "Bipolar Disorders")
 
->>>>>>> 0c42f309f113d64ab162f8597e747dc297ce73fc
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
@@ -22,9 +19,6 @@ ui <- fluidPage(
   ),
   tabPanel("Interactive Page 1",
            sidebarLayout(
-<<<<<<< HEAD
-             sidebarPanel(),
-=======
              sidebarPanel(selectInput("mental_disorders",
                                       label = "Choose a type of mental disorder",
                                       choices = c("Alcohol Use" = "alcohol_use",
@@ -34,7 +28,6 @@ ui <- fluidPage(
                                                   "Schizophrenia" = "schizophrenia",
                                                   "Eating Disorder" = "ed"),
                                       selected = "alcohol_use")),
->>>>>>> 0c42f309f113d64ab162f8597e747dc297ce73fc
              mainPanel(plotlyOutput("chart_1"),
              p("")
            ))),
