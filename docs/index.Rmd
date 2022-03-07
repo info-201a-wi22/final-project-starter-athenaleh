@@ -81,7 +81,7 @@ This list shows all the regime types and the average mental health issues that w
 ```{r, include = F, echo = F}
 library(ggplot2)
 library(plotly)
-source("../source/Chart_1_Athena.R")
+source("../source/chart_1.R")
 ```
 
 ```{r, include=T, echo=F}
