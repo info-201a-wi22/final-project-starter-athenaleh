@@ -3,8 +3,12 @@
 source("../source/summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
+<<<<<<< HEAD
 lowest_prevalence #government currently. 
 
+=======
+lowest_prevalence #government currently.
+>>>>>>> 76935e54b9f4454288a751960ba012ae358bf3af
 
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                    label = 'Mental Illnesses',
@@ -19,6 +23,10 @@ ui <- fluidPage(
   ),
   tabPanel("Interactive Page 1",
            sidebarLayout(
+<<<<<<< HEAD
+=======
+             sidebarPanel(),
+>>>>>>> 76935e54b9f4454288a751960ba012ae358bf3af
              sidebarPanel(selectInput("mental_disorders",
                                       label = "Choose a type of mental disorder",
                                       choices = c("Alcohol Use" = "alcohol_use",
