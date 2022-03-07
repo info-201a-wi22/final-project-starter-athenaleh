@@ -13,6 +13,6 @@ mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disord
 # source both ui and server
 source("app_server.R")
 source("app_ui.R")
-
+source("../source/summary_file.R")
 
 shinyApp(ui = ui, server = server)
