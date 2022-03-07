@@ -29,14 +29,8 @@ ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
-<<<<<<< HEAD
-             p())
-  ),
-  tabPanel("Interactive Page 1",
-=======
              p()),
   tabPanel("Unemployment and Mental Disorders Plots",
->>>>>>> f180bb2a32cbd66bcb4a39773250e491f7c2f186
            sidebarLayout(
              sidebarPanel(selectInput("mental_disorders",
                                       label = "Choose a type of mental disorder",
@@ -66,40 +60,23 @@ ui <- fluidPage(
              This is how we chose to represent the significance of mental health around the world. Governments of the locations with the more prevalent
              ratings of mental illnesses should step up and implement actionable items to improve the mental health of their citizens."
            ))),
-<<<<<<< HEAD
   tabPanel("Interactive Page 3",
            sidebarLayout(
              sidebarPanel(),
              mainPanel(plotlyOutput("chart_3"),
              p("")
-<<<<<<< HEAD
-           ))),
-  tabPanel("Summary",
-=======
            )))),
   tabPanel("Summary",
              p("In this project, our main goal was to get a better understanding in regards to mental"),
->>>>>>> f180bb2a32cbd66bcb4a39773250e491f7c2f186
            p("health. In doing so we hoped to get the tools to provide regions with poor mental health"),
            p("to better the lives of their people. To do so, we needed to answer a few questions that would"),
            p("help in doing so. The first question we asked was what is the current most prevelant mental health"),
            p("problem. It turns out that the answer to that is", most_prevelant_problem, ". We then wanted to know"),
-<<<<<<< HEAD
            p("What region currently has the lowest mental health issues. The answer turned out to be", lowest_region,),
            p("Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health"),
            p("issues. It turned out that both", lowest_prevalence_mil, "and", lowest_prevalence_mul, "have the lowest prevelance."),
            p("In finding the answers to these questions, we can not only find out what government type and region is thriving"),
-           p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")
-  )
-  )
-)
-=======
-           p("What region currently has the lowest mental health issues. The answer turned out to be"), lowest_region,
-           p("Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health"),
-           p("issues. It turned out that", lowest_prevalence, "have the lowest prevelance. In finding the answers to"),
-           p("these questions, we can not only find out what government type and region is thriving mentally, but we can"),
-           p("then pull from their success and implement them into regions that are not doing well mentally.")
-=======
+           p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")), 
   tabPanel("Disorders by Regime",
                     sidebarLayout(
                       sidebarPanel(
@@ -113,39 +90,5 @@ ui <- fluidPage(
                      ),
             tabPanel("Report Page",
                      p(""))
-                )
-  # tabPanel("Summary",
-  #            p("In this project, our main goal was to get a better understanding in regards to mental"),
-  #          p("health. In doing so we hoped to get the tools to provide regions with poor mental health"),
-  #          p("to better the lives of their people. To do so, we needed to answer a few questions that would"),
-  #          p("help in doing so. The first question we asked was what is the current most prevelant mental health"),
-  #          p("problem. It turns out that the answer to that is", most_prevelant_problem, ". We then wanted to know"),
-  #          p("What region currently has the lowest mental health issues. The answer turned out to be"), lowest_region,
-  #          p("Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health"),
-  #          p("issues. It turned out that", lowest_prevalence, "have the lowest prevelance. In finding the answers to"),
-  #          p("these questions, we can not only find out what government type and region is thriving mentally, but we can"),
-  #          p("then pull from their success and implement them into regions that are not doing well mentally.")
->>>>>>> 1d5612a32f7be47432089d69e3047b8db0ad02f3
-  #          )),
-  tabPanel("Report Page",
-           p(""))
-      ))
+                )))
 
-<<<<<<< HEAD
-=======
->>>>>>> f180bb2a32cbd66bcb4a39773250e491f7c2f186
-
-
-#            )),
-#   tabPanel("Report Page",
-#            p(""))
-#       )
-# )
-
-
-
-
-
-
->>>>>>> refs/remotes/origin/main
->>>>>>> 1d5612a32f7be47432089d69e3047b8db0ad02f3
