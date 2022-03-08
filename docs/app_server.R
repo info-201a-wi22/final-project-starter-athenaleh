@@ -150,3 +150,4 @@ server <- function(input, output){
            x = "Type of Regime",
            y = "Prevalence of Mental Disorders") })
   }
+
