@@ -4,8 +4,8 @@
 library("shiny")
 library("plotly")
 library("ggplot2")
-
 source("../source/chart_1.R")
+
 
 server <- function(input, output){
   output$chart_1 <- renderPlotly({
@@ -138,3 +138,4 @@ server <- function(input, output){
            x = "Type of Regime",
            y = "Prevalence of Mental Disorders") })
   }
+
