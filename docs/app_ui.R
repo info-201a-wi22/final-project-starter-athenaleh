@@ -1,5 +1,5 @@
 # app_ui
-
+source("../photos")
 source("../source/summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
@@ -29,7 +29,12 @@ ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
-             p("h")),
+    sidebarLayout(
+      sidebarPanel(
+        img(src = "intro.png")
+      ),
+    mainPanel("Introduction",
+             p("h"))),
   tabPanel("Unemployment and Mental Disorders Plots",
            sidebarLayout(
              sidebarPanel(selectInput("mental_disorders",
@@ -79,7 +84,7 @@ ui <- fluidPage(
            p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")),
   tabPanel("Report Page",
            p("hello")
-  )))
+  ))))
 
 
   
