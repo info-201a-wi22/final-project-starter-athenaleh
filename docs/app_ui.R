@@ -29,7 +29,7 @@ ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
-             img(src = "intro.png", height = 820, width = 437),
+             img(src = "intro.png", height = 437, width = 820),
              p("h")
     ),
   tabPanel("Unemployment and Mental Disorders Plots",
