@@ -24,10 +24,16 @@ pick_me <- selectInput("which_d",
 
 library(shiny)
 library(plotly)
+
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
+    sidebarLayout(
+      sidebarPanel(
+        img(src = "intro.png", height = 437, width = 820),
+      ),
+    mainPanel("Introduction",
              img(src = "intro.png", height = 437, width = 820),
              p("This website will investigate the relationship between government (type of regime), unemployment rate, 
              and mental health disorders.  The purpose of this is to see how these types of factors influence mental 
@@ -40,7 +46,7 @@ ui <- fluidPage(
              which could reduce the prevalence of mental health disorders.  This research has the ability to create
              actionable items that governments can take to overall lower the prevalence of mental health disorders 
              for the global community.")
-    ),
+    ))),
     tabPanel("Unemployment and Mental Disorders Plots",
              sidebarLayout(
                sidebarPanel(selectInput("mental_disorders",
@@ -83,18 +89,23 @@ ui <- fluidPage(
                         appear throughout different regimes and to pik up on any patterns that may arise.")
                ))),
     tabPanel("Summary",
-             img(src = "summary.png", height = 302, width = 820),
-             p("In this project, our main goal was to get a better understanding in regards to mental  
-            health. In doing so we hoped to get the tools to provide regions with poor mental health  
-            to better the lives of their people. To do so, we needed to answer a few questions that would  
-            help in doing so. The first question we asked was what is the current most prevelant mental health  
-            problem. It turns out that the answer to that is", most_prevelant_problem, ". We then wanted to know  
-            What region currently has the lowest mental health issues. The answer turned out to be", lowest_region,
-               "Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health  
-            issues. It turned out that both", lowest_prevalence_mil, "and", lowest_prevalence_mul, "have the lowest prevelance.  
-            In finding the answers to these questions, we can not only find out what government type and region is thriving  
-            mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")
-    ),
+             sidebarLayout(
+               sidebarPanel(
+                 img(src = "summary.png", height = 302, width = 820)
+               ),
+             mainPanel(
+               h1("Summary"),
+             p("In this project, our main goal was to get a better understanding in regards to mental"),  
+            p("health. In doing so we hoped to get the tools to provide regions with poor mental health"), 
+            p("to better the lives of their people. To do so, we needed to answer a few questions that would"),  
+            p("help in doing so. The first question we asked was what is the current most prevelant mental health"),  
+            p("problem. It turns out that the answer to that is", most_prevelant_problem, ". We then wanted to know"),  
+            p("What region currently has the lowest mental health issues. The answer turned out to be", lowest_region,),
+            p("Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health"),  
+            p("issues. It turned out that both", lowest_prevalence_mil, "and", lowest_prevalence_mul, "have the lowest prevelance."),  
+            p("In finding the answers to these questions, we can not only find out what government type and region is thriving"),  
+            p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")
+    ))),
     tabPanel("Report Page",
              h1("Mental Health Issues Around the World"),
              h2("Ron Levy, Athena Le, Arianna Khan, Nooha Mohammed"),
@@ -209,7 +220,7 @@ ui <- fluidPage(
            Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset> 
            “Prevalence by Mental and Substance Use Disorder.” Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>. 
            Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> “Unemployment Rate.” Our World in Data, 
-           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA>")
+           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA> ."),
     )
   )
 )
