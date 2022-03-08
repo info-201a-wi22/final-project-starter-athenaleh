@@ -87,12 +87,12 @@ ui <- fluidPage(
              p("In this project, our main goal was to get a better understanding in regards to mental  
             health. In doing so we hoped to get the tools to provide regions with poor mental health  
             to better the lives of their people. To do so, we needed to answer a few questions that would  
-            help in doing so. The first question we asked was what is the current most prevelant mental health  
-            problem. It turns out that the answer to that is", most_prevelant_problem, ". We then wanted to know  
-            What region currently has the lowest mental health issues. The answer turned out to be", lowest_region,
-               "Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health  
+            help in doing so. The first question we asked was: what is the current most prevelant mental health  
+            problem? It turns out that the answer to that is", most_prevelant_problem,". We then wanted to know  
+            which region currently has the lowest mental health issues. The answer turned out to be", lowest_region,
+               ". Finally, we also wanted to know which government type(s) has the lowest prevelance of mental health  
             issues. It turned out that both", lowest_prevalence_mil, "and", lowest_prevalence_mul, "have the lowest prevelance.  
-            In finding the answers to these questions, we can not only find out what government type and region is thriving  
+            In finding the answers to these questions, we can not only find out what government type and region allows their people to thrive  
             mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")
     ),
     tabPanel("Report Page",
