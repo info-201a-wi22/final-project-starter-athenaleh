@@ -7,7 +7,7 @@ lowest_prevalence #government currently.
 
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                    label = 'Mental Illnesses',
-                                   choices = c("Bipolar Disorders", "Eating Disorders", "Anxiety Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders"),
+                                   choices = c("Schizophrenia", "Bipolar Disorders", "Eating Disorders", "Anxiety Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders"),
                                    selected = "Bipolar Disorders")
 
 pick_me <- selectInput("which_d",
@@ -51,7 +51,7 @@ ui <- fluidPage(
              p("unemployment rate would impact mental disorder rates. We thought that if we could find a relationship,"),
              p("we could think of ways for how the government could provide support for unemployed people with mental disorders.")
            ))),
-  tabPanel("Interactive Page 2",
+  tabPanel("Mental Disorder Global Map",
            sidebarLayout(
              sidebarPanel(disorder_checkbox),
              mainPanel(plotlyOutput("chart_2"),
