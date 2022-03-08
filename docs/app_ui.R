@@ -1,5 +1,4 @@
 # app_ui
-source("../photos")
 source("../source/summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
@@ -25,16 +24,14 @@ pick_me <- selectInput("which_d",
                      )
 
 library(shiny)
+library(plotly)
 ui <- fluidPage(
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
-    sidebarLayout(
-      sidebarPanel(
-        img(src = "intro.png")
-      ),
-    mainPanel("Introduction",
-             p("h"))),
+                         img(src = "intro.png", height = 820, width = 437),
+             p("h")
+    ),
   tabPanel("Unemployment and Mental Disorders Plots",
            sidebarLayout(
              sidebarPanel(selectInput("mental_disorders",
@@ -84,7 +81,7 @@ ui <- fluidPage(
            p("mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")),
   tabPanel("Report Page",
            p("hello")
-  ))))
+  )))
 
 
   
