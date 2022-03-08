@@ -9,7 +9,7 @@ library(rsconnect)
 library(maps)
 
 mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
-source("../source/chart_3.R")
+government <- read.csv("../data/Government.xls.csv")
 
 # source both ui and server
 source("app_server.R")
