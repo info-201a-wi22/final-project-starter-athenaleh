@@ -30,7 +30,17 @@ ui <- fluidPage(
   tabsetPanel(
     tabPanel("Introduction",
              img(src = "intro.png", height = 437, width = 820),
-             p("h")
+             p("This website will investigate the relationship between government (type of regime), unemployment rate, 
+             and mental health disorders.  The purpose of this is to see how these types of factors influence mental 
+             health disorders among individuals.  The scale of this applies to the whole world!  Our data covers 
+             mental health disorders in different countries so we were able to apply our findings on a global scale.  
+             The mental health disorders we’re interested in investigating include schizophrenia, anxiety, bipolar 
+             disorder, eating disorder, drug use disorder, depressive disorder, and alcohol use disorder.  The goal 
+             of this research is to provide insights which could be utilized by government structures that have a higher 
+             prevalence of mental health disorders; we hope they utilize our insights into creating a better environment
+             which could reduce the prevalence of mental health disorders.  This research has the ability to create
+             actionable items that governments can take to overall lower the prevalence of mental health disorders 
+             for the global community.")
     ),
   tabPanel("Unemployment and Mental Disorders Plots",
            sidebarLayout(
@@ -66,7 +76,11 @@ ui <- fluidPage(
                         pick_me
                       ),
                       mainPanel(plotlyOutput("chart_3"),
-                      p("This bar plot will allow users to select which disorder they would like to investigate")
+                      p("This chart shows the prevalence of mental health disorders across different regimes.  
+                         As you click on different mental health disorders using the widget, you'll be able to see them represented 
+                         by different colors on the bar graph.  This will reveal the prevalence of each of the disorders are within 
+                        each type of regime.  It's important to notice the significance of each type of mental health disorder as they 
+                        appear throughout different regimes and to pik up on any patterns that may arise.")
                     ))),
   tabPanel("Summary",
            img(src = "summary.png", height = 302, width = 820),
