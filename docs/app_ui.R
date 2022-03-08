@@ -69,6 +69,7 @@ ui <- fluidPage(
                       p("This bar plot will allow users to select which disorder they would like to investigate")
                     ))),
   tabPanel("Summary",
+           img(src = "summary.png", height = 302, width = 820),
            p("In this project, our main goal was to get a better understanding in regards to mental"),
            p("health. In doing so we hoped to get the tools to provide regions with poor mental health"),
            p("to better the lives of their people. To do so, we needed to answer a few questions that would"),
