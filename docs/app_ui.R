@@ -41,33 +41,6 @@ ui <- fluidPage(
              actionable items that governments can take to overall lower the prevalence of mental health disorders 
              for the global community.")
     ),
-<<<<<<< HEAD
-  tabPanel("Unemployment and Mental Disorders Plots",
-           sidebarLayout(
-             sidebarPanel(selectInput("mental_disorders",
-                                      label = "Choose a type of mental disorder",
-                                      choices = c("Alcohol Use" = "alcohol_use",
-                                                  "Depressive Disorders" = "depressive_disorders",
-                                                  "Drug Use Disorder" = "drug_use",
-                                                  "Bipolar Disorder" = "bd",
-                                                  "Schizophrenia" = "schizophrenia",
-                                                  "Eating Disorder" = "ed", 
-                                                  "Anxiety Disorder" = "anxiety_disorders"),
-                                      selected = "alcohol_use")),
-             mainPanel(plotlyOutput("chart_1"),
-             p("These scatter plots aim to show the correlation between the unemployment rates and mental disorder"), 
-             p("rates of countries around the world in 2019. If the points are scattered"), 
-             p("throughout the plot, there are no clear correlation. However, if the points are concentrated in an area,"),
-             p("we can deduce that there is some type of correlation between those points. We wanted to see if there was"),
-             p("unemployment rate would impact mental disorder rates. We thought that if we could find a relationship,"),
-             p("we could think of ways for how the government could provide support for unemployed people with mental disorders.")
-           ))),
-  tabPanel("Mental Disorder Global Map",
-           sidebarLayout(
-             sidebarPanel(disorder_checkbox),
-             mainPanel(plotlyOutput("chart_2"),
-             p("This chart shows the prevalence of mental illnesses around the world. The more red the location, the more prevalent mental illnesses are.
-=======
     tabPanel("Unemployment and Mental Disorders Plots",
              sidebarLayout(
                sidebarPanel(selectInput("mental_disorders",
@@ -77,7 +50,8 @@ ui <- fluidPage(
                                                     "Drug Use Disorder" = "drug_use",
                                                     "Bipolar Disorder" = "bd",
                                                     "Schizophrenia" = "schizophrenia",
-                                                    "Eating Disorder" = "ed"),
+                                                    "Eating Disorder" = "ed", 
+                                                    "Anxiety Disorder" = "anxiety_disorders"),
                                         selected = "alcohol_use")),
                mainPanel(plotlyOutput("chart_1"),
                          p("These scatter plots aim to show the correlation between the unemployment rates and mental disorder 
@@ -92,7 +66,6 @@ ui <- fluidPage(
                sidebarPanel(disorder_checkbox),
                mainPanel(plotlyOutput("chart_2"),
                          p("This chart shows the prevalence of mental illnesses around the world. The more red the location, the more prevalent mental illnesses are.
->>>>>>> 8d8ff9e7decfa4c34c347675345b99d48e69b8fd
              The data represented through this map are the averages of the mental illnesses that we investigated; schizophrenia, bipolar disorder, etc.
              This is how we chose to represent the significance of mental health around the world. Governments of the locations with the more prevalent
              ratings of mental illnesses should step up and implement actionable items to improve the mental health of their citizens."
