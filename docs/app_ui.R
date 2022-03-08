@@ -1,13 +1,17 @@
 # app_ui
+
 source("../source/summary_file.R")
 most_prevelant_problem #currently
 lowest_region #recently
 lowest_prevalence #government currently.
 
-
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                   label = 'Mental Illnesses',
-                                  choices = c("Schizophrenia", "Bipolar Disorders", "Eating Disorders", "Anxiety Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders"),
+                                  choices = c("Schizophrenia", "Bipolar Disorders", 
+                                              "Eating Disorders", "Anxiety Disorders", 
+                                              "Drug Use Disorders", 
+                                              "Depressive Disorders", 
+                                              "Alcohol Use Disorders"),
                                   selected = "Bipolar Disorders")
 
 pick_me <- selectInput("which_d",
@@ -24,7 +28,37 @@ pick_me <- selectInput("which_d",
 
 library(shiny)
 library(plotly)
+
 ui <- fluidPage(
+  tags$head(
+    tags$style(HTML("
+                    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Text&display=swap');
+                    body{
+                      background-color: white;
+                      color: black;
+                    }
+                    h2 {
+                    font-family: 'Abril Fatface', display;
+                    font: 150px;
+                    }
+                    .shiny-input-container {
+                    color: #C06C84;
+                    }
+                    p{color: #6C5B7B;
+                    font-size: 16px;
+                    font-weight: 500}
+                    h4 {
+                    color: #355C7D;
+                    font: 30px;
+                    font-weight: 800;
+                    }
+                    h3 {
+                    color: black;
+                    font-weight: 600;
+                    font: 32px; 
+                    font-family: 'Dm Serif Text';
+                    }"
+  ))),
   titlePanel("Mental Health Issues Across the World"),
   tabsetPanel(
     tabPanel("Introduction",
@@ -96,22 +130,21 @@ ui <- fluidPage(
             mentally, but we can then pull from their success and implement them into regions that are not doing well mentally.")
     ),
     tabPanel("Report Page",
-             h1("Mental Health Issues Around the World"),
-             h2("Ron Levy, Athena Le, Arianna Khan, Nooha Mohammed"),
+             h3("Ron Levy, Athena Le, Arianna Khan, Nooha Mohammed"),
              p("March 9, 2022"),
              p("INFO-201: Technical Foundations of Informatics - The Information School - University of Washington"),
-             strong("Abstract"),
+             h4("Abstract"),
              p("Our main question for this project is to see the role that mental disorders play in our world. We can get a better understanding of how mental 
              health plays into people’s lives since it recently became acknowledged as a serious problem. To address this concern, we will observe the rates 
              of mental disorders per country/region and compare it with the types of government and unemployment rates."),
-             strong("Keywords"),
+             h4("Keywords"),
              p("mental disorders, global health, countries, regimes, unemployment"),
-             strong("1.0 Introduction"),
+             h4("1.0 Introduction"),
              p("In this project, our group will be focusing on the prevalence of mental health disorders in different countries. The exact mental health 
              disorders we’re interested in analyzing include schizophrenia, anxiety, bipolar disorder, eating disorder, drug use disorder, depressive 
              disorder, and alcohol use disorder. We hope that in doing this research, clear insight is provided regarding steps that countries with 
              poor mental health could take which would improve the quality of life and ultimately reduce mental health disorders for the global community."),
-             strong("2.0 Design Situation"),
+             h4("2.0 Design Situation"),
              p("Project framing: The topic of concern we are focusing on is mental health disorders around the world. More specifically, we want to investigate if 
              mental health disorders are related to government type and unemployment. For example, we want to see the prevalence of mental health disorders on a 
              global scale and dig into whether governments are exacerbating those issues in terms of social resources for the people in that nation. Key elements 
@@ -129,7 +162,7 @@ ui <- fluidPage(
              between cultures so some implementations may not work for different cultures. While we can avoid the potential harm, we might not be able to avoid the 
              unanticipated consequences. If the government has implemented some type of change, the people could react negatively which could cause an increase in 
              mental health issues"),
-             strong("3.0 Research Questions"),
+             h4("3.0 Research Questions"),
              p("1: Which continent/region has the most mental health problems by the most recent date? We will answer this by grouping each of the regions together. 
              We will then filter out the most recent date. Afterwards, we will take the average of all of the mental health issues and pull the Region that has the 
              highest percentage. 2: Which country has the lowest percentage of mental health issues currently? We will do the same thing as the first question, but instead of finding the largest percentage, we would find the 
@@ -141,7 +174,7 @@ ui <- fluidPage(
              6: How does unemployment rates correlate to mental health issues? We approached this question by takin the average of all the mental health issues. 
              Then, we merged that dataset with the unemployment dataset. After that, we took the highest unemploymen rate, lowest unemployment rate, lowest mental
              helath rate and the highest mental health rate to see if we can find a clear correlation between those numbers."),
-             strong("4.0 The Dataset"),
+             h4("4.0 The Dataset"),
              p("Data Provenance: The dataset that we chose to focus on is called “prevalence-by-mental-and-subset-use-disorder.” We found this dataset from Our World 
              in Data which is an organization sponsored by the University of Oxford. In this dataset country populations and their percentage of different mental 
              health issues are represented. It contains records from every country, at least those formally recognized by the site, and some are combined into areas 
@@ -161,7 +194,7 @@ ui <- fluidPage(
              regime change, and leadership. Lastly, we used a third dataset which contains data regarding unemployment rate around the world. This dataset has variables 
              which describe the Entity, Code, Year, and Unemployment, which was calculated by using the total percent of labor force and modeling the international labor 
              organization estimate."),
-             strong("5.0 Findings"),
+             h4("5.0 Findings"),
              p("Our main point of questioning for this project was to see the role that mental disorders play in our world to get a better understanding of how mental 
              health plays into people’s lives. Looking at all the charts created, we can identify how mental illnesses are grouped across countries. "),
              p("1: Which region has the most mental health problems by the most recent date?  Portugal is the country with the highest mental illness prevalence rate."),
@@ -178,7 +211,7 @@ ui <- fluidPage(
            clear correlation, or at least a linear, correlation between unemployment and mental disorders. Most unemployment rates and illness prevalence are clustered in the 
            same region by the origin, showing that countries with low unemployment rates (under 10%) also had low disorder rates (under 1%) and drug use had the tightest cluster. 
            Alcohol and anxiety disorders had the least correlation with unemployment."),
-             strong("6.0 Discussion"),
+              h4("6.0 Discussion"),
              p("There are many implications to our findings.  One of the most interesting of our findings is that the military and multi-party government structures tend to have 
              the least mental health disorders in that population.  This suggests that existing government structures in place and people of authority should consider applying 
              some of the traits of military and multi-party governments to their own.  It’s very important to pay close attention to the basis for success of a government and 
@@ -197,13 +230,13 @@ ui <- fluidPage(
              a more successful economy and overall country.  If this is the basis of our society, much attention needs to be brought to how to achieve the best and most optimal 
              government structure which supports that level of mental health.  Government’s must take action to implement more and advanced mental health care facilities and resources
              for the greater good of the people."),
-             strong("7.0 Conclusion"),
+             h4("7.0 Conclusion"),
              p("From this project, we can conclude that there is no clear correlation between the government and unemployment rates with the mental disorders that we focused on 
            (schizophrenia, eating disorders, drug use disorders, depressive disorders, bipolar disorders, anxiety disorders and alcohol use disorders). Through the data that 
            we wrangled, the two government types that had the lowest prevalence were opposite. Overall, it is hard to find a clear correlation of mental disorders with other 
            factors on this large of a scale because everyone is different. Looking forward; as mental health is less stigmatized on a global scale, data can be collected more 
            accurately and researchers will be able to develop a better understanding of these posed questions. "),
-             strong("References"),
+             h4("References"),
              p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020, 
            <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.” 
            Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset> 
@@ -213,7 +246,4 @@ ui <- fluidPage(
     )
   )
 )
-
-
-
 
