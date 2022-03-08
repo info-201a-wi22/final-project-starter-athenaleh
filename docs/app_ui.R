@@ -39,7 +39,7 @@ ui <- fluidPage(
              and mental health disorders.  The purpose of this is to see how these types of factors influence mental 
              health disorders among individuals.  The scale of this applies to the whole world!  Our data covers 
              mental health disorders in different countries so we were able to apply our findings on a global scale.  
-             The mental health disorders we’re interested in investigating include schizophrenia, anxiety, bipolar 
+             The mental health disorders were interested in investigating include schizophrenia, anxiety, bipolar 
              disorder, eating disorder, drug use disorder, depressive disorder, and alcohol use disorder.  The goal 
              of this research is to provide insights which could be utilized by government structures that have a higher 
              prevalence of mental health disorders; we hope they utilize our insights into creating a better environment
@@ -113,13 +113,13 @@ ui <- fluidPage(
              p("INFO-201: Technical Foundations of Informatics - The Information School - University of Washington"),
              strong("Abstract"),
              p("Our main question for this project is to see the role that mental disorders play in our world. We can get a better understanding of how mental 
-             health plays into people’s lives since it recently became acknowledged as a serious problem. To address this concern, we will observe the rates 
+             health plays into peoples lives since it recently became acknowledged as a serious problem. To address this concern, we will observe the rates 
              of mental disorders per country/region and compare it with the types of government and unemployment rates."),
              strong("Keywords"),
              p("mental disorders, global health, countries, regimes, unemployment"),
              strong("1.0 Introduction"),
              p("In this project, our group will be focusing on the prevalence of mental health disorders in different countries. The exact mental health 
-             disorders we’re interested in analyzing include schizophrenia, anxiety, bipolar disorder, eating disorder, drug use disorder, depressive 
+             disorders were interested in analyzing include schizophrenia, anxiety, bipolar disorder, eating disorder, drug use disorder, depressive 
              disorder, and alcohol use disorder. We hope that in doing this research, clear insight is provided regarding steps that countries with 
              poor mental health could take which would improve the quality of life and ultimately reduce mental health disorders for the global community."),
              strong("2.0 Design Situation"),
@@ -156,14 +156,14 @@ ui <- fluidPage(
              p("Data Provenance: The dataset that we chose to focus on is called “prevalence-by-mental-and-subset-use-disorder.” We found this dataset from Our World 
              in Data which is an organization sponsored by the University of Oxford. In this dataset country populations and their percentage of different mental 
              health issues are represented. It contains records from every country, at least those formally recognized by the site, and some are combined into areas 
-             such as the “Middle east and North Africa’’. Each group has data from each year between 1990 to 2019 on the percentage of multiple mental illnesses; 
+             such as the Middle east and North Africa. Each group has data from each year between 1990 to 2019 on the percentage of multiple mental illnesses; 
              more specifically, schizophrenia, bipolar disorder, eating disorders, drug use, depression, and alcohol use. It contains 8221 records, has a range of 
              40 years for each country, and has 10 columns that represent different mental health issues that we will be focusing on. We obtained the data from Our 
              World in Data site which provides accessible data to the general public without requirements on inclusion in government or certain research institutions.
              This dataset combines data collected by the Global Health Data Exchange, which is owned by the University of Washington. Much of the data in the Global 
              Health Data Exchange is received from studies done by the IPUMS, ICPSR, and the World Bank, credible organizations where data is collected in order to 
              create a global understanding for institutional change. It is held secure and cannot be modified and re-entered into the databases. The data we are using 
-             comes from a string of credible and trustworthy sources of NGO’s and research universities where data collection is not for monetary goals, however one 
+             comes from a string of credible and trustworthy sources of NGOs and research universities where data collection is not for monetary goals, however one 
              limitation in the provenance is that we cannot see the specific collection process and cannot ensure it was accurately or ethically produced, beyond the 
              credibility of the organizations. Our second dataset to supplement our analysis is”Autocracies of the World Dataset.” from the Freeman Spogli Institute 
              for International Studies within Stanford University which creates a measure of credibility. It classifies the regime types of governments from 1950-2012 
@@ -174,7 +174,7 @@ ui <- fluidPage(
              organization estimate."),
              strong("5.0 Findings"),
              p("Our main point of questioning for this project was to see the role that mental disorders play in our world to get a better understanding of how mental 
-             health plays into people’s lives. Looking at all the charts created, we can identify how mental illnesses are grouped across countries. "),
+             health plays into peoples lives. Looking at all the charts created, we can identify how mental illnesses are grouped across countries. "),
              p("1: Which region has the most mental health problems by the most recent date?  Portugal is the country with the highest mental illness prevalence rate."),
              p("2: Which country has the lowest percentage of mental health issues currently? Vietnam is the country with the lowest average mental health issues. Looking 
              at the highest and lowest prevalence rates can be a reflection of countries that are more or less open to diagnoses."),
@@ -192,21 +192,21 @@ ui <- fluidPage(
              strong("6.0 Discussion"),
              p("There are many implications to our findings.  One of the most interesting of our findings is that the military and multi-party government structures tend to have 
              the least mental health disorders in that population.  This suggests that existing government structures in place and people of authority should consider applying 
-             some of the traits of military and multi-party governments to their own.  It’s very important to pay close attention to the basis for success of a government and 
+             some of the traits of military and multi-party governments to their own.  Its very important to pay close attention to the basis for success of a government and 
              so these key findings are important in deciding which strategies other governments can pull from them. However, it may also be a reflection of collection bias or 
              availability of diagnoses."),
              p("Another implication of these findings include the fact that there were not many correlations between mental health and unemployment rate.  This means that the 
-             unemployment rate of a country may not have a high impact on an individual's mental health.  This may be a good thing because it’s difficult to control the unemployment 
+             unemployment rate of a country may not have a high impact on an individual's mental health.  This may be a good thing because its difficult to control the unemployment 
              rate, which means governments can turn to other resources in order to improve citizens' mental health.  Government's should continue looking into different ways to 
              improve mental health."),
              p("One other thing that governments should consider is the fact that the most prevalent mental health disorder in general is anxiety. This means that there should be 
              action taken to reduce anxiety in individuals.  This can be done through promoting certain things to help with reducing anxiety.  For example, taking a break from work, 
              limiting alcohol and caffeine, getting enough sleep, exercising daily, and taking deep breaths.  These tips and tricks can be spearheaded into government  mantras or 
-             used frequently to help and guide individuals.  It’s important for governments to take some sort of action in order to attempt to reduce feeling anxious among its 
+             used frequently to help and guide individuals.  Its important for governments to take some sort of action in order to attempt to reduce feeling anxious among its 
              citizens."),
-             p("Overall, government structure must change to reflect the people’s needs.  Mental health disorders are a fundamental and basic stepping stone to cross in order to achieve 
+             p("Overall, government structure must change to reflect the peoples needs.  Mental health disorders are a fundamental and basic stepping stone to cross in order to achieve 
              a more successful economy and overall country.  If this is the basis of our society, much attention needs to be brought to how to achieve the best and most optimal 
-             government structure which supports that level of mental health.  Government’s must take action to implement more and advanced mental health care facilities and resources
+             government structure which supports that level of mental health.  Governments must take action to implement more and advanced mental health care facilities and resources
              for the greater good of the people."),
              strong("7.0 Conclusion"),
              p("From this project, we can conclude that there is no clear correlation between the government and unemployment rates with the mental disorders that we focused on 
@@ -215,10 +215,10 @@ ui <- fluidPage(
            factors on this large of a scale because everyone is different. Looking forward; as mental health is less stigmatized on a global scale, data can be collected more 
            accurately and researchers will be able to develop a better understanding of these posed questions. "),
              strong("References"),
-             p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020, 
-           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.” 
+             p("Klein, Catherine DaIgnazio and Lauren. 1. The Power Chapter · Data Feminism. Data Feminism, PubPub, 16 Mar. 2020, 
+           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset.” 
            Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset> 
-           “Prevalence by Mental and Substance Use Disorder.” Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>. 
+           Prevalence by Mental and Substance Use Disorder. Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>. 
            Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> “Unemployment Rate.” Our World in Data, 
            <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA> ."),
     )
