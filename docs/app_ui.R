@@ -31,10 +31,10 @@ ui <- fluidPage(
     tabPanel("Introduction",
     sidebarLayout(
       sidebarPanel(
-        img(src = "intro.png", height = 437, width = 820),
+        img(src = "intro.png", height = 200, width = 300),
       ),
-    mainPanel("Introduction",
-             img(src = "intro.png", height = 437, width = 820),
+    mainPanel(
+      h1("Introduction"),
              p("This website will investigate the relationship between government (type of regime), unemployment rate, 
              and mental health disorders.  The purpose of this is to see how these types of factors influence mental 
              health disorders among individuals.  The scale of this applies to the whole world!  Our data covers 
@@ -91,7 +91,7 @@ ui <- fluidPage(
     tabPanel("Summary",
              sidebarLayout(
                sidebarPanel(
-                 img(src = "summary.png", height = 302, width = 820)
+                 img(src = "summary.png", height = 110, width = 300)
                ),
              mainPanel(
                h1("Summary"),
