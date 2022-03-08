@@ -1,10 +1,6 @@
 # app_ui
+
 source("../source/summary_file.R")
-most_prevelant_problem #currently
-lowest_region #recently
-lowest_prevalence #government currently.
-
-
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                   label = 'Mental Illnesses',
                                   choices = c("Schizophrenia", "Bipolar Disorders", "Eating Disorders", "Anxiety Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders"),
