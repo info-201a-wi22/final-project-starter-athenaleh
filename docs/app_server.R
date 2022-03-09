@@ -1,5 +1,5 @@
 
-source("../source/chart_1.R")
+source("chart_1.R")
 
 server <- function(input, output){
   output$chart_1 <- renderPlotly({
