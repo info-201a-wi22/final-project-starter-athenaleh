@@ -13,7 +13,7 @@ disorder_checkbox <- radioButtons(inputId = 'disorder',
 pick_me <- selectInput("which_d",
                        label = "Select Disorder",
                        choices = list("Alcohol Use Disorders" = "Alcohol Use Disorders",
-                                      "Anxiety Disorders" = "Anxiety Disorders",
+                                      "Anxiety Disorders" = "Anxiety Disroders",
                                       "Bipolar Disorders" = "Bipolar Disorders",
                                       "Depressive Disorders" = "Depressive Disorders",
                                       "Drug Use Disorders" = "Drug Use Disorders",
@@ -112,7 +112,7 @@ ui <- fluidPage(
                          As you click on different mental health disorders using the widget, you'll be able to see them represented
                          by different colors on the bar graph.  This will reveal the prevalence of each of the disorders are within
                         each type of regime.  It's important to notice the significance of each type of mental health disorder as they
-                        appear throughout different regimes and to pik up on any patterns that may arise.")
+                        appear throughout different regimes and to pick up on any patterns that may arise.")
                ))),
     tabPanel("Summary",
              sidebarLayout(

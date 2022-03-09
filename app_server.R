@@ -62,21 +62,18 @@ server <- function(input, output){
              y = "Eating Disorders")} })
 
     output$chart_2 <- renderPlotly({
-               mental_health_df <- mental_health %>%
+               mental_health_aves <- mental_health_df %>%
                  rename(region = Entity) %>%
-                 group_by(region)%>%
-                 mutate("Schizophrenia" = mean(Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent.),
-                        "Eating Disorders"= mean(Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent.),
-                        "Anxiety Disorders" = mean(Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.),
-                        "Bipolar Disorders" = mean(Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.),
-                        "Drug Use Disorders" = mean(Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.),
-                        "Depressive Disorders" = mean(Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.),
-                        "Alcohol Use Disorders" = mean(Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.))%>%
-                 select(region, Year, "Schizophrenia", "Eating Disorders", "Anxiety Disorders", "Bipolar Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders")%>%
-                 filter(Year >= 1991) %>%
-                 filter(Year <= 2012)
+                 group_by(region) %>%
+                 summarize(Schizophrenia = mean(Schizophrenia), 
+                           `Bipolar Disorders` = mean(`Bipolar Disorders`), 
+                           `Eating Disorders`= mean(`Eating Disorders`), 
+                           `Anxiety Disorders`=mean(`Anxiety Disroders`), 
+                           `Drug Use Disorders`=mean(`Drug Use Disorders`), 
+                           `Depressive Disorders`=mean(`Depressive Disorders`), 
+                           `Alcohol Use Disorders`=mean(`Alcohol Use Disorders`))
                mapdata1 <- map_data("world") #ggplot2
-               mapdata <- left_join(mapdata1, mental_health_df, by="region")
+               mapdata <- left_join(mapdata1, mental_health_aves, by="region")
                mapdata0 <- as.data.frame(mapdata)
                `Average prevalence rate` <- mapdata0[, input$disorder]
                #creating basic map
@@ -93,19 +90,6 @@ server <- function(input, output){
                return(map1)
   })
   output$chart_3 <- renderPlotly ({
-# cleaning up `mental_health` data frame
-    mental_health_df <- mental_health %>%
-      mutate(Schizophrenia= Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent.,
-             "Eating Disorders"= Prevalence...Eating.disorders...Sex..Both...Age..Age.standardized..Percent.,
-             "Anxiety Disorders" = Prevalence...Anxiety.disorders...Sex..Both...Age..Age.standardized..Percent.,
-             "Bipolar Disorders" = Prevalence...Bipolar.disorder...Sex..Both...Age..Age.standardized..Percent.,
-             "Drug Use Disorders" = Prevalence...Drug.use.disorders...Sex..Both...Age..Age.standardized..Percent.,
-             "Depressive Disorders" = Prevalence...Depressive.disorders...Sex..Both...Age..Age.standardized..Percent.,
-             "Alcohol Use Disorders" = Prevalence...Alcohol.use.disorders...Sex..Both...Age..Age.standardized..Percent.)%>%
-      select(Entity, Year, Schizophrenia, "Eating Disorders", "Anxiety Disorders", "Bipolar Disorders", "Drug Use Disorders", "Depressive Disorders", "Alcohol Use Disorders")%>%
-      group_by(Entity)%>%
-      filter(Year >= 1991)%>%
-      filter(Year <= 2012)
 # government
     government_type <- government %>%
       mutate(Year= year, Code= scode, Entity= country, Regime = regime_nr)%>%
@@ -118,7 +102,7 @@ server <- function(input, output){
       group_by(Entity, Year)%>%
       right_join(government_type, by= c("Entity", "Year")) %>%
       group_by(Regime) %>%
-      select(Regime, `Schizophrenia`, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disorders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`)
+      select(Regime, `Schizophrenia`, `Bipolar Disorders`, `Eating Disorders`, `Anxiety Disroders`, `Drug Use Disorders`, `Depressive Disorders`, `Alcohol Use Disorders`)
 # turning columns into rows
     mental_health_gov_long <- pivot_longer(mental_health_gov, "Schizophrenia":"Alcohol Use Disorders", names_to = "disorder", values_to = "prevalence")%>%
       group_by(Regime, disorder)%>%
@@ -133,4 +117,3 @@ server <- function(input, output){
            x = "Type of Regime",
            y = "Prevalence of Mental Disorders") })
   }
-

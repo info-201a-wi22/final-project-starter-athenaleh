@@ -1,0 +1,14 @@
+name: mental_health
+title: mental_health
+username:
+account: nooham9
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5810737
+bundleId: 5659034
+url: https://nooham9.shinyapps.io/mental_health/
+when: 1646789073.32472
+lastSyncTime: 1646789073.32474
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|hello.html|index.html|index.Rmd|p01-proposal.md|p02.R|README.md|index_files
