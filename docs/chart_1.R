@@ -1,18 +1,6 @@
-# clear working environment
-
-# libraries
-
-
-
-
 # data access
-source("../source/data_access.R")
+source("aggregate_file.R")
 
-# use the data
-mental_health <- read_mental_health_dataset()
-unemployment_rate <- read_unemployment_rate_dataset()
-
-# clean up data
 # mental health
 mental_health_filtered <- mental_health %>%
   rename(Schizophrenia=Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
@@ -29,7 +17,7 @@ mental_health_filtered <- mental_health %>%
   filter(Code != "") # remove empty columns of Code because they're not countries
 
 # unemployment rate
-unemployment_filtered <- unemployment_rate %>%
+unemployment_filtered <- unemployment %>%
   rename(Unemployment=Unemployment..total....of.total.labor.force...modeled.ILO.estimate.) %>%
   filter(Year == "2019") %>%
   melt(id.vars=c("Year", "Entity", "Code"))%>%  # to change the column and row 

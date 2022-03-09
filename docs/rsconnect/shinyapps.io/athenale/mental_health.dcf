@@ -1,0 +1,14 @@
+name: mental_health
+title: mental_health
+username:
+account: athenale
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5810725
+bundleId: 5659085
+url: https://athenale.shinyapps.io/mental_health/
+when: 1646790321.7428
+lastSyncTime: 1646790321.74281
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|data_access.R|hello.html|index.html|index.Rmd|p01-proposal.md|p02.R|README.md|index_files

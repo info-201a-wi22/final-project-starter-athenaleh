@@ -12,6 +12,9 @@ library(tidyr)
 library(tidyverse)
 
 # source both ui and server
+mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
+unemployment <- read.csv("../data/unemployment-rate.csv")
+government <- read_csv("../data/Government.xls.csv")
 source("app_server.R")
 source("app_ui.R")
 
