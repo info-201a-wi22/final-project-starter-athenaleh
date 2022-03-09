@@ -1,6 +1,6 @@
 # Summary file
 
-source("../source/aggregate_file.R")
+source("./docs/aggregate_file.R")
 
 # libraries
 

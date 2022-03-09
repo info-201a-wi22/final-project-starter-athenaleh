@@ -1,0 +1,14 @@
+name: final-project-starter-athenaleh
+title: final-project-starter-athenaleh
+username:
+account: athenale
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5810951
+bundleId: 5659133
+url: https://athenale.shinyapps.io/final-project-starter-athenaleh/
+when: 1646791583.81695
+lastSyncTime: 1646791583.81696
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: instructions/project-design-brief.pdf|instructions/README.md|LICENSE|Public-Dataset-Daily-Case-Info.xlsx|README.md
