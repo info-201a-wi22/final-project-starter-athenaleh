@@ -1,23 +1,6 @@
 # app_ui
 source("../source/summary_file.R")
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
-most_prevelant_problem #currently
-lowest_region #recently
-lowest_prevalence #government currently.
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 2af76ddac6802ca5c9eb89172e1360afd52e8e3b
->>>>>>> aaba773c24475348d5096216751738288c88746c
->>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                   label = 'Mental Illnesses',
                                   choices = c("Schizophrenia", "Bipolar Disorders",
@@ -195,7 +178,7 @@ ui <- fluidPage(
              Then, we merged that dataset with the unemployment dataset. After that, we took the highest unemploymen rate, lowest unemployment rate, lowest mental
              helath rate and the highest mental health rate to see if we can find a clear correlation between those numbers."),
              h4("4.0 The Dataset"),
-             p("Data Provenance: The dataset that we chose to focus on is called “prevalence-by-mental-and-subset-use-disorder.” We found this dataset from Our World
+             p("Data Provenance: The dataset that we chose to focus on is called “prevalence-by-mental-and-subset-use-disorder. We found this dataset from Our World
              in Data which is an organization sponsored by the University of Oxford. In this dataset country populations and their percentage of different mental
              health issues are represented. It contains records from every country, at least those formally recognized by the site, and some are combined into areas
              such as the Middle east and North Africa. Each group has data from each year between 1990 to 2019 on the percentage of multiple mental illnesses;
@@ -207,7 +190,7 @@ ui <- fluidPage(
              create a global understanding for institutional change. It is held secure and cannot be modified and re-entered into the databases. The data we are using
              comes from a string of credible and trustworthy sources of NGOs and research universities where data collection is not for monetary goals, however one
              limitation in the provenance is that we cannot see the specific collection process and cannot ensure it was accurately or ethically produced, beyond the
-             credibility of the organizations. Our second dataset to supplement our analysis is”Autocracies of the World Dataset.” from the Freeman Spogli Institute
+             credibility of the organizations. Our second dataset to supplement our analysis is. Autocracies of the World Dataset from the Freeman Spogli Institute
              for International Studies within Stanford University which creates a measure of credibility. It classifies the regime types of governments from 1950-2012
              into democracy, multiparty, single party, military, and monarchy. The dataset includes rows for every year for countries with populations of 500,000 or
              greater and has 8,629 observations. Along with the regime classification column, it includes many columns on country classifications like continent, code,
@@ -257,30 +240,13 @@ ui <- fluidPage(
            factors on this large of a scale because everyone is different. Looking forward; as mental health is less stigmatized on a global scale, data can be collected more
            accurately and researchers will be able to develop a better understanding of these posed questions. "),
              h4("References"),
-<<<<<<< HEAD
-             p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020,
-           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.”
+             p("Klein, Catherine DIgnazio and Lauren.1. The Power Chapter · Data Feminism. Data Feminism, PubPub, 16 Mar. 2020,
+           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset.
            Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset>
            Prevalence by Mental and Substance Use Disorder. Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>.
-           Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> “Unemployment Rate.” Our World in Data,
-           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA> ."),
-=======
-             p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020, 
-           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.” 
-=======
-             strong("References"),
-             p("Klein, Catherine DaIgnazio and Lauren. 1. The Power Chapter · Data Feminism. Data Feminism, PubPub, 16 Mar. 2020, 
-<<<<<<< HEAD
-           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset. 
-=======
-           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset.” 
->>>>>>> 2af76ddac6802ca5c9eb89172e1360afd52e8e3b
->>>>>>> aaba773c24475348d5096216751738288c88746c
-           Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset> 
-           Prevalence by Mental and Substance Use Disorder. Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>. 
-           Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> Unemployment Rate. Our World in Data, 
-           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA>.")
->>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
+           Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> Unemployment Rate. Our World in Data,
+           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA>. <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset."),
+          
     )
   )
 )
