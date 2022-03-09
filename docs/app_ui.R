@@ -1,11 +1,23 @@
 # app_ui
-
 source("../source/summary_file.R")
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
 most_prevelant_problem #currently
 lowest_region #recently
 lowest_prevalence #government currently.
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 2af76ddac6802ca5c9eb89172e1360afd52e8e3b
+>>>>>>> aaba773c24475348d5096216751738288c88746c
+>>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                   label = 'Mental Illnesses',
                                   choices = c("Schizophrenia", "Bipolar Disorders",
@@ -245,12 +257,30 @@ ui <- fluidPage(
            factors on this large of a scale because everyone is different. Looking forward; as mental health is less stigmatized on a global scale, data can be collected more
            accurately and researchers will be able to develop a better understanding of these posed questions. "),
              h4("References"),
+<<<<<<< HEAD
              p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020,
            <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.”
            Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset>
            Prevalence by Mental and Substance Use Disorder. Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>.
            Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> “Unemployment Rate.” Our World in Data,
            <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA> ."),
+=======
+             p("Klein, Catherine D’Ignazio and Lauren. “1. The Power Chapter · Data Feminism.” Data Feminism, PubPub, 16 Mar. 2020, 
+           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. “Autocracies of the World Dataset.” 
+=======
+             strong("References"),
+             p("Klein, Catherine DaIgnazio and Lauren. 1. The Power Chapter · Data Feminism. Data Feminism, PubPub, 16 Mar. 2020, 
+<<<<<<< HEAD
+           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset. 
+=======
+           <https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/4>. Magaloni, Beatriz. Autocracies of the World Dataset.” 
+>>>>>>> 2af76ddac6802ca5c9eb89172e1360afd52e8e3b
+>>>>>>> aaba773c24475348d5096216751738288c88746c
+           Freeman Spogli Institute for International Studies, Stanford, <https://cddrl.fsi.stanford.edu/research/autocracies_of_the_world_dataset> 
+           Prevalence by Mental and Substance Use Disorder. Our World in Data, <https://ourworldindata.org/grapher/prevalence-by-mental-and-substance-use-disorder?country=~OWID_WRL>. 
+           Psychometric Origins of Depression - Journals.sagepub.com. <https://journals.sagepub.com/doi/abs/10.1177/09526951211009085> Unemployment Rate. Our World in Data, 
+           <https://ourworldindata.org/grapher/unemployment-rate?tab=chart&country=~USA>.")
+>>>>>>> 8bcc5ad5a90c78366b7506218d7dc03c7cd5fa19
     )
   )
 )
