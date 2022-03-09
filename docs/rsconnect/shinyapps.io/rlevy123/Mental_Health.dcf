@@ -5,10 +5,10 @@ account: rlevy123
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5808354
-bundleId: 5657925
+bundleId: 5657970
 url: https://rlevy123.shinyapps.io/Mental_Health/
-when: 1646769242.48951
-lastSyncTime: 1646769242.48951
+when: 1646769968.94414
+lastSyncTime: 1646769968.94414
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: hello.html|index.html|index.Rmd|p01-proposal.md|p02.R|README.md|index_files
+ignoredFiles: hello.html|index.html|index.Rmd|p01-proposal.md|p02.R|README.md
