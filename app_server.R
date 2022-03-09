@@ -1,6 +1,6 @@
 
-source("./docs/chart_1.R")
-source("./docs/aggregate_file.R")
+source("./source/chart_1.R")
+source("./source/aggregate_file.R")
 
 server <- function(input, output){
   output$chart_1 <- renderPlotly({
