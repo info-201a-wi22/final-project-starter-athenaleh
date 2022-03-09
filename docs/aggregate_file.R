@@ -1,7 +1,5 @@
 #original dataset with all the mental health issues ---------
-# mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
-
-
+mental_health <- read.csv("../data/prevalence-by-mental-and-substance-use-disorder.csv")
 
 mental_health_df <- mental_health %>%
   mutate(Schizophrenia= Prevalence...Schizophrenia...Sex..Both...Age..Age.standardized..Percent., 
@@ -19,7 +17,7 @@ mental_health_df <- mental_health %>%
 
 
 #Unemployment dataset----------
-# unemployment <- read.csv("../data/unemployment-rate.csv")
+unemployment <- read.csv("../data/unemployment-rate.csv")
 
 colnames(unemployment)
 
@@ -33,7 +31,7 @@ unemployment_df <- unemployment %>%
 
 
 #government dataset --------------
-# government <- read_csv("../data/Government.xls.csv")
+government <- read_csv("../data/Government.xls.csv")
 
 colnames(government)
 government_df <- government %>%

@@ -1,5 +1,5 @@
 # app_ui
-source("summary_file.R")
+source("/source/summary_file.R")
 
 disorder_checkbox <- radioButtons(inputId = 'disorder',
                                   label = 'Mental Illnesses',

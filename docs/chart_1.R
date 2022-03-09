@@ -1,5 +1,5 @@
 # data access
-source("aggregate_file.R")
+source("../source/aggregate_file.R")
 
 # mental health
 mental_health_filtered <- mental_health %>%
